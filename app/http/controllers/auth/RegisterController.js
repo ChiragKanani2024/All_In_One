@@ -21,7 +21,7 @@ const RegisterController = ()=>{
                         return res.send({
                             success:true,
                             alert:"You are Already Registered But Your Account is InActive Click Below link for Activate",
-                            activationLink:`http://localhost:3001/activateuser?email=${req.body.email}&activationKey=${result[0][0].active_pin}`
+                            activationLink:`http://localhost:3000/activateuser?email=${req.body.email}&activationKey=${result[0][0].active_pin}`
                             });
                     }
                     return res.send({success:false,alert:"Already User Exists with This email Try another one"})
@@ -40,7 +40,7 @@ const RegisterController = ()=>{
                        return res.send({
                         success:true,
                         alert:"Click Below Link for Activate Your account",
-                        activationLink:`http://localhost:3001/activateuser?email=${req.body.email}&activationKey=${activation_key}`
+                        activationLink:`http://localhost:3000/activateuser?email=${req.body.email}&activationKey=${activation_key}`
                         })
                         }else{
                             return res.send({success:false,alert:"Something Went Wrong Try Again"})

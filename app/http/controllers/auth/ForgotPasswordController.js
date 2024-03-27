@@ -48,7 +48,7 @@ const ForgotPasswordController = ()=>{
                               return res.send({
                             success:true,
                             alert:"Click Below Link for Change Your account Password",
-                            forgotPassLink:`http://localhost:3001/changepassword?email=${req.body.email}&activationKey=${result[0][0].active_pin}`
+                            forgotPassLink:`http://localhost:3000/changepassword?email=${req.body.email}&activationKey=${result[0][0].active_pin}`
                             });
                     }else{
                         return res.send({success:false,alert:"Your Account is now InActive register again"})

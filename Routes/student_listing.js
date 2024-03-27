@@ -76,7 +76,7 @@ student_listing.get("/",auth,async(req,res)=>{
         
         let result = await getData(offset,limit,req.session.orderby);
       
-       res.render("component/studentListing/index",{title:"Home",users:result[0],firstpage:1,lastpage:lastPage,currentpage:page,TotalDataCount:DataCount,limit:limit,orderby:req.session.orderby,route:'',layout:"layouts/student_listing.ejs"})
+       res.render("component/studentListing/index",{title:"Home",users:result[0],firstpage:1,lastpage:lastPage,currentpage:page,TotalDataCount:DataCount,limit:limit,orderby:req.session.orderby,route:'student_listing',layout:"layouts/student_listing.ejs"})
     } catch (error) {
         console.log(error)
     }
