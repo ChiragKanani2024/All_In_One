@@ -1,0 +1,68 @@
+
+<%- include('./component/header') %>
+
+<main>
+  
+    <section class="userlist">
+        <div class="container userlist_container">
+           
+            <div class="pageComponent">
+                <div class="pageitem">
+                    <a href="/pageComponent?page=<%= firstpage %>" class="firstpage "><i class="fa-solid fa-less-than"></i><i class="fa-solid fa-less-than"></i></a>
+                </div> 
+                 <div class="pageitem">
+                    <a href="" class="previouspage "><i class="fa-solid fa-less-than"  ></i></a>
+                </div> 
+                 <div class="pageitem">
+                    <p class="currentpage ">
+
+                    </p>
+                </div>
+                  <div class=" pageitem">
+                    <a href="" class="nextpage"><i class="fa-solid fa-greater-than"></i></a>
+                </div> 
+                 <div class=" pageitem">
+                    <a href="/pageComponent?page=<%= lastpage %>" class="lastpage"><i class="fa-solid fa-greater-than"></i><i class="fa-solid fa-greater-than"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+</main>
+
+<%- include('./component/footer') %>
+
+<script>
+    let currentpage = document.querySelector(".currentpage ");
+    let firstpage = document.querySelector(".firstpage ");
+    let lastpage = document.querySelector(".lastpage ");
+    let previouspage = document.querySelector(".previouspage");
+    let nextpage = document.querySelector(".nextpage ");
+
+    
+   
+   const urlParams = new URLSearchParams(window.location.search);
+    if (! urlParams.get('page')) {
+        currentpage.innerText = 1
+       
+    }else{
+        currentpage.innerText = urlParams.get('page')
+    }
+  
+    if (Number ( currentpage.innerText) == 1 ) {
+        previouspage.style.pointerEvents= "none"
+        firstpage.style.pointerEvents= "none"
+    }else if(Number ( currentpage.innerText) == 250 ){
+       nextpage.style.pointerEvents = "none";
+       lastpage.style.pointerEvents = "none"
+    }
+  nextpage.addEventListener("click",()=>{
+        nextpage.href = `/pageComponent?page=${Number ( urlParams.get('page')) + 1}`
+  })
+
+  previouspage.addEventListener("click",()=>{
+    previouspage.href = `/pageComponent?page=${Number ( urlParams.get('page')) - 1}`
+  })
+</script>

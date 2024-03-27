@@ -1,0 +1,128 @@
+
+
+<main>
+  
+    <section class="userlist">
+        <div class="container userlist_container">
+            <h1 class="name">Chirag Kanani EMP(24DEV036)
+            </h1>
+            <table>
+               
+               
+                <thead>
+                   
+                    <tr>
+                       <th rowspan="2">No</th>
+                        <th rowspan="2">Student Name</th>
+                        <th colspan="2"> Terminal</th>
+                        <th colspan="2">Prileam</th>
+                        <th colspan="2">Final</th >
+                        <th rowspan="2" >total</th >
+                        <th rowspan="2" >Opration</th >
+                    </tr>
+
+         <tr>
+            
+             <th>Theory Mark</th>
+             <th>Practical Mark</th>
+             <th>Theory Mark</th>
+                <th>Practical Mark</th>
+                <th>Theory Mark</th>
+                <th>Practical Mark</th>
+             
+            
+         </tr>
+                </thead>
+               <tbody>
+                <% Result.forEach(element => { %>
+                    <tr>
+                        <td><%= element.student_id%></td>
+                        <td><%= element.student_name %></td>
+                        <td><%= element.Terminal_theory %> / 240</td>
+                        <td><%= element.Terminal_practical %> / 60</td>
+                        <td><%= element.Prileam_theory %> / 240</td>
+                        <td><%= element.Prileam_practical %> / 60</td>
+                        <td><%= element.Final_theory %> / 480</td>
+                        <td><%= element.Final_practical  %> / 120</td>
+                        <td><%= element.Total  %> / 1200</td>
+                        <td> 
+                            <a href="/student_listing/studentResult/<%= element.student_id  %> " class="view" >View</a>  
+                       
+                        </td>
+                    </tr>
+                <% }) %>
+                
+               </tbody>
+               <tfoot>
+                <tr>
+                    <td colspan="11" > 
+                        <div class="opration">
+                       
+                    <div>
+                        <p>Showing <%= (limit * currentpage) - limit + 1 %> to <%= limit * currentpage %> of <%= TotalDataCount %> entries</p>
+                    </div>
+                   
+                    <div class="pageComponent">
+                        <div class="pageitem">
+                            <a href="/student_listing/getResult?page=<%= firstpage %>" class="firstpage "><i class="fa-solid fa-less-than"></i><i class="fa-solid fa-less-than"></i></a>
+                        </div> 
+                         <div class="pageitem">
+                            <a href="/student_listing/getResult?page=<%= currentpage==firstpage?firstpage:currentpage -1 %>" class="previouspage "><i class="fa-solid fa-less-than"  ></i></a>
+                        </div> 
+                         <div class="pageitem">
+                            <input type="text" class="currentpage " id="pageinput" value="<%= currentpage %>" />
+                                
+                         
+                        </div>
+                          <div class=" pageitem">
+                            <a href="/student_listing/getResult?page=<%= currentpage==lastpage?lastpage:currentpage + 1  %>" class="nextpage"><i class="fa-solid fa-greater-than"></i></a>
+                        </div> 
+                         <div class=" pageitem">
+                            <a href="/student_listing/getResult?page=<%= lastpage %>" value ="<%= lastpage %>" class="lastpage"><i class="fa-solid fa-greater-than"></i><i class="fa-solid fa-greater-than"></i></a>
+                        </div>
+                    </div>
+                   
+                   
+                </div>
+                </td>
+                </tr>
+               </tfoot>
+            </table>
+
+        </div>
+    </section>
+
+
+
+   
+
+</main>
+
+
+<script>
+    let currentpage = document.querySelector(".currentpage ");
+    let firstpage = document.querySelector(".firstpage ");
+    let lastpage = document.querySelector(".lastpage ");
+    let previouspage = document.querySelector(".previouspage");
+    let nextpage = document.querySelector(".nextpage ");
+
+    
+    let pageinput = document.querySelector("#pageinput")
+   
+
+  
+    if (Number ( currentpage.value) == 1 ) {
+        previouspage.style.pointerEvents= "none"
+        firstpage.style.pointerEvents= "none"
+    }else if(Number ( currentpage.value) == 20 ){
+       nextpage.style.pointerEvents = "none";
+       lastpage.style.pointerEvents = "none"
+    }
+    pageinput.addEventListener("change",()=>{
+        window.location.href = window.location.origin + window.location.pathname + `?page=${pageinput.value}`
+    })
+
+  
+
+   
+</script>

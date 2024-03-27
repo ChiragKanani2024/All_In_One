@@ -1,0 +1,97 @@
+
+
+<main>
+  
+    <section class="userlist">
+        <div class="container userlist_container">
+            <h1 class="name">Chirag Kanani EMP(24DEV036)
+            </h1>
+            <table>
+               <caption> <h2 class="name">Result of <%= Result[0].student_name %></h2></caption>
+               
+                <thead>
+                   
+                  
+                    <tr>
+                      
+                         <th rowspan="2">Student Name</th>
+                         <th rowspan="2">Subject Name</th>
+                         <th colspan="2"> Terminal</th>
+                         <th colspan="2">Prileam</th>
+                         <th colspan="2">Final</th >
+                         <th rowspan="2" >total</th >
+                         
+                     </tr>
+ 
+          <tr>
+             
+              <th>Theory Mark</th>
+              <th>Practical Mark</th>
+              <th>Theory Mark</th>
+                 <th>Practical Mark</th>
+                 <th>Theory Mark</th>
+                 <th>Practical Mark</th>
+              
+             
+          </tr>
+
+       
+                </thead>
+               <tbody>
+                
+                <tr>
+                    <td rowspan="7"> <%= Result[0].student_name  %></td>
+
+                </tr>
+               
+                <% Result.forEach(element => { %>
+                    <tr>
+                        <td><%= element.name %></td>
+                       <td><%= element.Terminal_theory %></td>
+                        <td><%= element.Terminal_practical %></td>
+                        <td><%= element.Prileam_theory %></td>
+                        <td><%= element.Prileam_practical %></td>
+                        <td><%= element.Final_theory%></td>
+                        <td><%= element.Final_practical %></td>
+                        <td> <%= Number( element.Terminal_theory) + Number(element.Terminal_practical) + Number(element.Prileam_theory) + Number(element.Prileam_practical) + Number(element.Final_theory) + Number( element.Final_practical) %></td>
+          
+                  
+                       
+                       
+                    </tr>
+                <% }) %>
+                
+               </tbody>
+            
+            </table>
+
+            <table>
+                <caption> <h2 class="name">Attandence Report</h2></caption>
+                <thead>
+                    <tr>
+                        <th>Present Day</th>
+                        <th>
+                            Attandence %</th>
+                        <th>Month</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% attandences.forEach(element => { %>
+                     <tr>
+                        <td><%= element.present_day %> Day / <%= element.monthday %></td>
+                        <td><%= parseFloat((element.present_day /element.monthday) * 100).toFixed(2) %> %</td>
+                        <td><%= element.month %></td>
+                     </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <div>
+            <a href="/student_listing/getResult" class="back-btn" > Back</a>
+                
+            </div>
+        </div>
+    </section>
+
+
+</main>
+

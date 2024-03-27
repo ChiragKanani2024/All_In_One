@@ -8,6 +8,7 @@ const kuku_cube = require("./Routes/kuku_cube");
 const tictactoe = require("./Routes/tictactoe");
 const events = require("./Routes/events");
 const delemeter_search = require("./Routes/delemeter_search");
+const student_listing = require("./Routes/student_listing");
 
 
 
@@ -31,6 +32,7 @@ app.use(express.urlencoded({extended:true}))
 
 
 app.use("/kuku_cube",kuku_cube)
+app.use("/student_listing",student_listing)
 app.use("/delemeter_search",delemeter_search)
 app.use("/events",events)
 app.use("/tictactoe",tictactoe)

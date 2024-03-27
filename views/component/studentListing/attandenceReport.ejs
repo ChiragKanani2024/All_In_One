@@ -1,0 +1,130 @@
+
+
+<main>
+  
+    <section class="userlist">
+        <div class="container userlist_container">
+            <h1 class="name">Chirag Kanani EMP(24DEV036)
+            </h1>
+            <table>
+               
+               
+                <thead>
+                   
+                    <tr>
+                       <th>No</th>
+                        <th>Student Name</th>
+                        <th>Present Day</th>
+                        <th>Attendance %</th>
+                        <th>Month</th>
+                        
+                        
+                    </tr>
+                </thead>
+               <tbody>
+
+          <% attandences.forEach((user,index)=> { %>
+            <tr>
+               <td><%= user.id %></td>
+                <td><%= user.student_name%></td>
+              
+                
+                <td><%=user.presentDay %> Days / <%= new Date(filterbymonth.year,filterbymonth.month,0).getDate() %></td>
+                <td><%= parseFloat((user.presentDay/ new Date(filterbymonth.year,filterbymonth.month,0).getDate()) *100).toFixed(2) %></td>
+                <td><%= (filterbymonth.month+","+filterbymonth.year+","+new Date(filterbymonth.year,filterbymonth.month,0).getDate()) %></td>
+               
+            </tr> 
+          <% }) %>
+               
+
+               </tbody>
+               <tfoot>
+                <tr>
+                    <td colspan="11" > 
+                        <div class="opration">
+                       
+                    <div>
+                        <p>Showing <%= (limit * currentpage) - limit + 1 %> to <%= limit * currentpage %> of <%= TotalDataCount %> entries</p>
+                    </div>
+                    <div class="orderby_dropdown">
+                        <select  id="filterbymonth">
+                                <option data-month="<%= filterbymonth.month  %>" value="2023-12">Dec 2023</option>
+                                        <option data-month="<%= filterbymonth.month  %>"  value="2024-01">Jan 2024</option>
+                      <option data-month="<%= filterbymonth.month  %>"  value="2024-02">Feb 2024 </option>
+                                               
+                           
+                         
+                        </select>
+                    </div>
+                    <div class="pageComponent">
+                        <div class="pageitem">
+                            <a href="/student_listing/attandenceReport?page=<%= firstpage %>" class="firstpage "><i class="fa-solid fa-less-than"></i><i class="fa-solid fa-less-than"></i></a>
+                        </div> 
+                         <div class="pageitem">
+                            <a href="/student_listing/attandenceReport?page=<%= currentpage==firstpage?firstpage:currentpage -1 %>" class="previouspage "><i class="fa-solid fa-less-than"  ></i></a>
+                        </div> 
+                         <div class="pageitem">
+                            <input type="text" class="currentpage " id="pageinput" value="<%= currentpage %>" />
+                                
+                         
+                        </div>
+                          <div class=" pageitem">
+                            <a href="/student_listing/attandenceReport?page=<%= currentpage==lastpage?lastpage:currentpage + 1  %>" class="nextpage"><i class="fa-solid fa-greater-than"></i></a>
+                        </div> 
+                         <div class=" pageitem">
+                            <a href="/student_listing/attandenceReport?page=<%= lastpage %>" value ="<%= lastpage %>" class="lastpage"><i class="fa-solid fa-greater-than"></i><i class="fa-solid fa-greater-than"></i></a>
+                        </div>
+                    </div>
+                   
+                   
+                </div>
+                </td>
+                </tr>
+               </tfoot>
+            </table>
+
+        </div>
+    </section>
+
+
+</main>
+
+<script>
+    let currentpage = document.querySelector(".currentpage ");
+    let firstpage = document.querySelector(".firstpage ");
+    let lastpage = document.querySelector(".lastpage ");
+    let previouspage = document.querySelector(".previouspage");
+    let nextpage = document.querySelector(".nextpage ");
+
+    let filterbymonth = document.querySelector("#filterbymonth")
+    let pageinput = document.querySelector("#pageinput")
+   
+
+  
+    if (Number ( currentpage.value) == 1 ) {
+        previouspage.style.pointerEvents= "none"
+        firstpage.style.pointerEvents= "none"
+    }else if(Number ( currentpage.value) == 20 ){
+       nextpage.style.pointerEvents = "none";
+       lastpage.style.pointerEvents = "none"
+    }
+
+
+
+    filterbymonth.addEventListener("change",()=>{
+        window.location.href = window.location.origin + window.location.pathname + `?filterbymonth=${filterbymonth.value}`
+        
+    }) 
+
+    
+    pageinput.addEventListener("change",()=>{
+        window.location.href = window.location.origin + window.location.pathname + `?page=${pageinput.value}`
+    })
+
+    for (let i = 0; i < filterbymonth.options.length; i++) {
+     if (Number(filterbymonth.options[i].value.split("-")[1]) === Number(filterbymonth.options[i].dataset.month)) {
+        filterbymonth.options[i].selected= true
+     }
+        
+    }
+</script>

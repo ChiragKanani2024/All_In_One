@@ -1,0 +1,226 @@
+
+
+<main>
+  
+    <section class="userlist">
+        <div class="container userlist_container">
+            <div class="searchpanel">
+                <form action="/student_listing/searchById" method="post">
+                    <input type="text" autofocus name="id" id="" placeholder="Enter Student Id">
+                    <input type="submit" name="" id="" value="Go">
+                    <button id="showmore">Show more</button>
+                </form>
+                <form action="/student_listing/searchByFilter" id="searchbyfilter" method="post">
+                    <input type="text" name="firstname" placeholder="Filter by first name" id="">
+                    <input type="text" name="lastname" placeholder="Filter by last name" id="">
+                    <input type="text" name="age" placeholder="Filter by age">
+                    <input type="text" name="city" placeholder="Filter by City">
+                    <select name="gender" id="">
+                        <option value="">Filter by Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <select name="whereby" id="">
+                        <option value="and" selected>and</option>
+                        <option value="or" >or</option>
+                    </select>
+                    <input type="submit" name="" id="" value="Go">
+                </form>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="id">No <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div>  </th>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="first_name" >First Name <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div>  </th>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="last_name">Last Name <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div> </th>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="email">Email <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div> </th>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="mobile_no">Phone No <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div> </th>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="age">Age <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div> </th>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="aadhar_no">Adhar No <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div> </th>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="gender">Gender <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div> </th>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="city">City <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div> </th>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="pincode">Pincode <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div> </th>
+                        <th class="orderby" data-val="<%= orderby %>" data-order="created_date">Created Date <div class="up_down"><i class="fa-solid fa-caret-up " ></i><i class="fa-solid fa-caret-down " ></i></div> </th>
+                        
+                    </tr>
+                </thead>
+               <tbody>
+
+          <% users.forEach((user,index)=> { %>
+            <tr>
+               <td><%= user.id %></td>
+                <td><%= user.first_name%></td>
+                <td><%= user.last_name %></td>
+                
+                <td><%=user.email %></td>
+                <td><%= user.mobile_no %></td>
+                <td><%= user.age%></td>
+                <td><%= user.aadhar_no%></td>
+                <td><%= user.gender%></td>
+                <td><%= user.city%></td>
+                <td><%= user.pincode%></td>
+                <td><%= user.created_date.toUTCString()%></td>
+               
+            </tr> 
+          <% }) %>
+               
+
+               </tbody>
+               <tfoot>
+                <tr>
+                    <td colspan="11" > 
+                         <div class="opration">
+                        <!-- <div class="pageComponent">
+                        <div class="pageitem">
+                            <a href="/pageComponent?page=<%= firstpage %>" class="firstpage "><i class="fa-solid fa-less-than"></i><i class="fa-solid fa-less-than"></i></a>
+                        </div> 
+                         <div class="pageitem">
+                            <a href="" class="previouspage "><i class="fa-solid fa-less-than"  ></i></a>
+                        </div> 
+                         <div class="pageitem">
+                            <p class="currentpage ">
+        
+                            </p>
+                        </div>
+                          <div class=" pageitem">
+                            <a href="" class="nextpage"><i class="fa-solid fa-greater-than"></i></a>
+                        </div> 
+                         <div class=" pageitem">
+                            <a href="/pageComponent?page=<%= lastpage %>" class="lastpage"><i class="fa-solid fa-greater-than"></i><i class="fa-solid fa-greater-than"></i></a>
+                        </div>
+                    </div> -->
+                    <div>
+                        <p>Showing <%= (limit * currentpage) - limit + 1 %> to <%= limit * currentpage %> of <%= TotalDataCount %> entries</p>
+                    </div>
+                    <!-- <div class="orderby_dropdown">
+                        <select  id="orderby">
+                           
+                            <option data-orderby = "<%= orderby %>" value="first_name ">First Name ASC</option>
+                            <option data-orderby = "<%= orderby %>" value="first_name desc">First Name DESC</option>
+                            <option data-orderby = "<%= orderby %>" value="last_name ">Last Name ASC</option>
+                            <option data-orderby = "<%= orderby %>" value="last_name desc">Last Name DESC</option>
+                            <option data-orderby = "<%= orderby %>" value="city ">City ASC</option>
+                            <option data-orderby = "<%= orderby %>" value="city desc">City DESC</option>
+                            <option data-orderby = "<%= orderby %>" value="age ">Age ASC</option>
+                            <option data-orderby = "<%= orderby %>" value="age desc">Age DESC</option>
+                            <option data-orderby = "<%= orderby %>" value="pincode ">Pincode ASC</option>
+                            <option data-orderby = "<%= orderby %>" value="pincode desc">Pincode DESC</option>
+                            <option data-orderby = "<%= orderby %>" value="created_date ">Created Date ASC</option>
+                            <option data-orderby = "<%= orderby %>" value="created_date desc">Created Date DESC</option>
+                            <option data-orderby = "<%= orderby %>" value="id desc">Id DESC</option>
+                            <option data-orderby = "<%= orderby %>" value="id ">Id </option>
+                           
+                        </select>
+                    </div> -->
+                    <div class="pageComponent">
+                        <div class="pageitem">
+                            <a href="/<%= route %>?page=<%= firstpage %>" class="firstpage "><i class="fa-solid fa-less-than"></i><i class="fa-solid fa-less-than"></i></a>
+                        </div> 
+                         <div class="pageitem">
+                            <a href="/<%= route %>?page=<%= currentpage==firstpage?firstpage:currentpage -1 %>" class="previouspage "><i class="fa-solid fa-less-than"  ></i></a>
+                        </div> 
+                         <div class="pageitem">
+                            <input type="text" class="currentpage " id="pageinput" value="<%= currentpage %>" />
+                                
+                         
+                        </div>
+                          <div class=" pageitem">
+                            <a href="/<%= route %>?page=<%= currentpage==lastpage?lastpage:currentpage + 1  %>" class="nextpage"><i class="fa-solid fa-greater-than"></i></a>
+                        </div> 
+                         <div class=" pageitem">
+                            <a href="/<%= route %>?page=<%= lastpage %>" class="lastpage"><i class="fa-solid fa-greater-than"></i><i class="fa-solid fa-greater-than"></i></a>
+                        </div>
+                    </div>
+                   
+                  
+
+                </div>
+                </td>
+                </tr>
+               </tfoot>
+            </table>
+
+        </div>
+    </section>
+
+
+</main>
+
+
+<script>
+    let currentpage = document.querySelector(".currentpage ");
+    let firstpage = document.querySelector(".firstpage ");
+    let lastpage = document.querySelector(".lastpage ");
+    let previouspage = document.querySelector(".previouspage");
+    let nextpage = document.querySelector(".nextpage ");
+
+    // let orderby = document.querySelector("#orderby")
+    let orderby = document.querySelectorAll(".orderby")
+    let pageinput = document.querySelector("#pageinput")
+   
+//    const urlParams = new URLSearchParams(window.location.search);
+//     if (! urlParams.get('page')) {
+//         currentpage.innerText = 1
+       
+//     }else{
+//         currentpage.innerText = urlParams.get('page')
+//     }
+  
+    if (Number ( currentpage.value) == 1 ) {
+        previouspage.style.pointerEvents= "none"
+        firstpage.style.pointerEvents= "none"
+    }else if(Number ( currentpage.value) == 250 ){
+       nextpage.style.pointerEvents = "none";
+       lastpage.style.pointerEvents = "none"
+    }
+//   nextpage.addEventListener("click",()=>{
+
+//         nextpage.href = ! urlParams.get('page')? '/pageComponent?page=2': `/pageComponent?page=${Number ( urlParams.get('page')) + 1}`
+//   })
+
+//   previouspage.addEventListener("click",()=>{
+//     previouspage.href = `/pageComponent?page=${Number ( urlParams.get('page')) - 1}`
+//   })
+
+
+    // orderby.addEventListener("change",()=>{
+    //     window.location.href = window.location.origin + window.location.pathname + `?orderby=${orderby.value}`
+        
+    // }) 
+    pageinput.addEventListener("change",()=>{
+        window.location.href = window.location.origin + window.location.pathname + `?page=${pageinput.value}`
+    })
+
+
+    // for (let i = 0; i < orderby.options.length; i++) {
+    //  if (orderby.options[i].value === orderby.options[i].dataset.orderby) {
+    //     orderby.options[i].selected= true
+    //  }  
+    // }
+    const doOrderBy = (e)=>{
+        if (e.target.dataset.order.split(" ")[0] == e.target.dataset.val.split(" ")[0] ) {
+           if (e.target.dataset.val.split(" ")[1] !== "desc") {
+             e.target.dataset.order=`${e.target.dataset.order} desc`
+           }
+        }
+           window.location.href = window.location.origin + window.location.pathname + `?orderby=${e.target.dataset.order}`
+    }
+
+    orderby.forEach(e => {
+        e.addEventListener("click",doOrderBy);
+        if (e.dataset.order.split(" ")[0] == e.dataset.val.split(" ")[0] ) {
+           if (e.dataset.val.split(" ")[1] !== "desc") {
+            e.firstElementChild.firstElementChild.classList.add("high")
+           }else{
+            e.firstElementChild.lastElementChild.classList.add("high")
+           }
+        }
+    });
+   
+   const showmore = document.querySelector("#showmore");
+
+   showmore.addEventListener("click",(e)=>{
+    e.preventDefault()
+    document.querySelector("#searchbyfilter").style.display = 'block'
+   })
+</script>
