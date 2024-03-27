@@ -12,7 +12,8 @@ const getResult = require("../app/http/controllers/studentListing/getResult").ge
 const getResultCount = require("../app/http/controllers/studentListing/getResult").getResultCount
 const getStudentResult = require("../app/http/controllers/studentListing/studentResult")
 const {searchByFilter,searchById} = require("../app/http/controllers/studentListing/searchStudent")
-const session = require("express-session")
+const session = require("express-session");
+const auth = require("../app/http/middlewares/authValidation/auth");
 
 student_listing.use(session({ 
     secret: 'Your_Secret_Key', 
@@ -42,12 +43,12 @@ student_listing.use(session({
 
 
 
-student_listing.all("/searchById",searchById)
-student_listing.all("/searchByFilter",searchByFilter)
+student_listing.all("/searchById",auth,searchById)
+student_listing.all("/searchByFilter",auth,searchByFilter)
 
 
 
-student_listing.get("/",async(req,res)=>{
+student_listing.get("/",auth,async(req,res)=>{
     try {
         let limit = process.env.limit;
         let DataCount = await getDataCount();
@@ -81,7 +82,7 @@ student_listing.get("/",async(req,res)=>{
     }
 })
 
-student_listing.get("/attandenceReport",async(req,res)=>{
+student_listing.get("/attandenceReport",auth,async(req,res)=>{
     try {
        
         let limit = process.env.limit;
@@ -115,7 +116,7 @@ student_listing.get("/attandenceReport",async(req,res)=>{
     }
 })
 
-student_listing.get("/getResult",async(req,res)=>{
+student_listing.get("/getResult",auth,async(req,res)=>{
     try {
        
         let limit = process.env.limit;
@@ -144,7 +145,7 @@ student_listing.get("/getResult",async(req,res)=>{
 })
 
 
-student_listing.get("/studentResult/:id",async(req,res)=>{
+student_listing.get("/studentResult/:id",auth,async(req,res)=>{
     try {
         let result = await getStudentResult(req.params.id);
        res.render("component/studentListing/studentResult",{title:"Home",Result:result.result1,attandences:result.attandence[0],layout:"layouts/student_listing.ejs"})
@@ -160,7 +161,7 @@ student_listing.get("/studentResult/:id",async(req,res)=>{
 
 
 
-// student_listing.get("/pageComponent",(req,res)=>{
+// student_listing.get("/pageComponent",auth,(req,res)=>{
 //     try {
     
 //         res.render("pageComponent",{title:"Pagination",firstpage:1,lastpage:250})

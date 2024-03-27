@@ -1,0 +1,68 @@
+<div class="container">
+
+<form action="" id="citystateform">
+<div>
+    <select name="" id="states">
+        
+    </select>
+</div>
+<div>
+    <select name="" id="citys">
+        <option value="">Select State First</option>
+    </select>
+</div>
+
+</form>
+
+</div>
+
+
+<script>
+        let statesCombo = document.querySelector("#states");
+        let citiesCombo = document.querySelector("#citys")
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            let states = JSON.parse(xhttp.responseText);
+            let str = '';
+            states.forEach(element => {
+                str+= `<option value="${element.id}">${element.name}</option>`
+            });
+            statesCombo.innerHTML = str;
+            }
+        xhttp.open("post", "http://localhost:3000/job_application/getstate");
+        xhttp.send();
+    });
+
+    statesCombo.addEventListener("change",async()=>{
+
+       let result = await fetch('http://localhost:3000/job_application/getcity',{
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json;charset=utf-8',
+            'xml':"Helloo"
+        },
+        body: JSON.stringify({state_id:statesCombo.value})
+       });
+
+       result = await result.json()
+       let str = '';
+            result.forEach(element => {
+                str+= `<option value="${element.id}">${element.city}</option>`
+            });
+            citiesCombo.innerHTML = str;
+    })
+
+
+    let display = document.querySelector(".display")
+    let btn = document.querySelector(".btn")
+
+
+   
+
+
+
+    let data= {
+        
+    }
+</script>

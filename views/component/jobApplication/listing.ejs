@@ -1,0 +1,25 @@
+
+
+
+<div class="container">
+    <table id="listing_table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Update</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(item => { %>
+             <tr>
+                <td><%= item['employee_id'] %></td>
+                <td><%= item['firstname'] %></td>
+                <td><%= item['lastname'] %></td>
+                <td> <a href="/job_application/updateform2?id=<%= item['employee_id'] %>"> Update</a>  </td>
+             </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>

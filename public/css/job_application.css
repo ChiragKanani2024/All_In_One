@@ -1,0 +1,214 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+header{
+    text-align: center;
+}
+
+.container{
+    max-width: 70vw;
+    margin: auto;
+}
+
+.basic{
+    display: grid;
+    grid-template-columns: auto auto ;
+    max-width: 70vw;
+   
+}
+
+.formfield{
+    margin: 1rem;
+}
+
+fieldset{
+    border-radius: 1rem;
+    margin: 1rem auto;
+}
+
+.education{
+    display: flex;
+    
+}
+
+.work_experience_detail{
+    display: flex;;
+}
+
+.language{
+    max-width: 27rem;
+    margin: 0 auto;
+}
+.technology{
+    max-width: 30rem;
+    margin: 0 auto;
+}
+
+.referance_detail{
+    display: flex;
+}
+
+.preferances{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#submit{
+    text-align: center;
+}
+
+#submit_button{
+    background-color: rgb(12, 240, 221);
+    width: 10rem;
+    height: 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+
+.form-head{
+    background-color: black;
+    padding: 0 10px;
+    display: flex;
+}
+
+.form-head p{
+    padding: 10px;
+    color: white;
+}
+.live{
+    background-color: white;
+    color: black !important;
+}
+
+
+
+
+
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.container{
+    max-width: 1080px;
+    padding:20px 15px;
+    margin: 0 auto;
+}
+
+header{
+    background-color: #0d4369;
+    color: white;
+}
+.header_container{
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+    justify-content: space-between;
+    max-width: 70% ;
+
+}
+
+header ul{
+    display: flex;
+    list-style: none;
+    gap: 0 20px;
+}
+header ul li a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: large;
+}
+
+
+.alert{
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}
+.opration{
+    display: inline-block;
+}
+.work_experience{
+    position: relative;
+}
+
+.referance{
+    position: relative;
+}
+.add{
+    position: absolute;
+    right: 6px;
+    background-color: black;
+    color: white;
+    font-size: 22px;
+    padding: 5px;
+    border-radius: 70%;
+    cursor: pointer;
+}
+span{
+    font-size: 13px;
+}
+
+#listing_table{
+    margin: 10px auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+    background-color: cadetblue;
+}
+th{
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 15px;
+}
+tr,td{
+    border: 2px solid black;
+    padding: 10px 15px;
+}
+
+#citystateform{
+    margin: 20px auto;
+    display: flex;
+    gap: 20px;
+}
+
+.none{
+    display: none;
+}
+
+
+/* insertform2 css */
+
+.pre-next-btns{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.move-btn{
+    padding: 8px 18px;
+    font-size: 16px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+.none{
+    display: none;
+}
+
+.form2{
+    background-color: rgb(52, 87, 121);
+   
+}
+
+.parts{
+    padding: 0 10px;
+}
+

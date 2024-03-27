@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken');
+
 
 const guest = (req,res,next)=>{
     if (!req.cookies.token) {
@@ -8,7 +10,6 @@ const guest = (req,res,next)=>{
             res.redirect("/")
           } catch(err) {    
             //   console.log(err)
-            
               next()
           }
     }
