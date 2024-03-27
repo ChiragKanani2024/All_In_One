@@ -10,6 +10,7 @@ const events = require("./Routes/events");
 const delemeter_search = require("./Routes/delemeter_search");
 const student_listing = require("./Routes/student_listing");
 const job_application = require("./Routes/job_application");
+const dynamic_grid = require("./Routes/dynamic_grid");
 
 
 
@@ -17,7 +18,7 @@ const expresslayout = require("express-ejs-layouts")
 const  cookieParser = require('cookie-parser');
 const flash = require('express-flash')
 
-const session = require("express-session")
+const session = require("express-session");
 
 app.use(session({ 
     secret: 'Your_Secret_Key', 
@@ -42,6 +43,7 @@ app.use(express.urlencoded({extended:true}))
 
 
 app.use("/kuku_cube",kuku_cube)
+app.use("/dynamic_grid",dynamic_grid)
 app.use("/student_listing",student_listing)
 app.use("/delemeter_search",delemeter_search)
 app.use("/job_application",job_application)

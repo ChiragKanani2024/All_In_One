@@ -1,0 +1,12 @@
+<table>
+
+    <caption>Table Data</caption>
+
+
+
+    <%- include('grid_head',{Result:Object.keys(Result[0]) }) %>
+        <%- include('grid_body') %>
+            <%- include('grid_foot') %>
+                <%- include('pagination') %>
+
+</table>

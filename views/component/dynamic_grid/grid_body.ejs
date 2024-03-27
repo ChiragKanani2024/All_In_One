@@ -1,0 +1,14 @@
+<tbody>
+
+    <% Result.forEach(element=> { %>
+        <tr>
+            <% for (const key in element) { %>
+                <td>
+                    <%= element[key] %>
+                </td>
+
+                <% } %>
+        </tr>
+        <% }) %>
+
+</tbody>

@@ -1,0 +1,21 @@
+
+
+    <div class="listing container">
+        <form action="/dynamic_grid/" method="post">
+            <textarea name="query" id="" cols="40" rows="10"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+        <table>
+            <caption>Tables in Database</caption>
+            <%- include('grid_body',{Result:tablelist}) %>
+        </table>
+
+
+
+        <% if (showTable==true) { %>
+            <%- include('grid') %>
+            <% } %>
+
+
+
+    </div>

@@ -1,0 +1,20 @@
+
+<div class="pageComponent">
+    <div class="pageitem">
+        <a href="/<%= route %>?page=<%= firstpage %>" class="firstpage "><i class="fa-solid fa-less-than"></i><i class="fa-solid fa-less-than"></i></a>
+    </div> 
+     <div class="pageitem">
+        <a href="/<%= route %>?page=<%= currentpage==firstpage?firstpage:currentpage -1 %>" class="previouspage "><i class="fa-solid fa-less-than"  ></i></a>
+    </div> 
+     <div class="pageitem">
+        <input type="text" class="currentpage " id="pageinput" value="<%= currentpage %>" />
+            
+     
+    </div>
+      <div class=" pageitem">
+        <a href="/<%= route %>?page=<%= currentpage==lastpage?lastpage:currentpage + 1  %>" class="nextpage"><i class="fa-solid fa-greater-than"></i></a>
+    </div> 
+     <div class=" pageitem">
+        <a href="/<%= route %>?page=<%= lastpage %>" data-last="<%= lastpage %>"  value ="<%= lastpage %>" class="lastpage"><i class="fa-solid fa-greater-than"></i><i class="fa-solid fa-greater-than"></i></a>
+    </div>
+</div>
