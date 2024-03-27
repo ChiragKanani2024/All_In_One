@@ -4,6 +4,8 @@ const pagination = require("../app/http/controllers/dynamic_grid/pagination");
 const tablelistingController = require("../app/http/controllers/dynamic_grid/tablelisting");
 const selectquery = require("../app/http/databaseHelpers/selectquery");
 
+const auth = require('../app/http/middlewares/authValidation/auth')
+
 const session = require("express-session");
 
 dynamic_grid.use(
@@ -21,7 +23,7 @@ function middleware(req, res, next) {
   next();
 }
 
-dynamic_grid.all("/", middleware, async (req, res) => {
+dynamic_grid.all("/", auth,middleware, async (req, res) => {
   try {
     if (req.method == "POST" || req.method == "GET") {
       if (req.session.query) {
