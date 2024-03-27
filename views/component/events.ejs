@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Js Events
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background-color: rgb(2, 70, 70);
+        }
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+        #event{
+            border: 2px solid rgb(255, 255, 255);
+            background-color: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            margin: auto;
+            text-align: center;
+            border-radius: 1rem;
+        }
+        tr,td{
+            width: 10rem;
+            border-right: 2px solid  rgb(31, 111, 148);
+            border-bottom: 2px solid rgb(31, 111, 148);
+        }
+        .btn{
+            width: 6rem;
+            height: 2rem;
+            background-color: green;
+            cursor: pointer;
+            border-radius: 1rem;            
+        }
+        header{
+            text-align: center;
+            color: white;
+        }
+        input{
+            border-radius: 1rem;
+            border: 2px solid black;
+            /* width: 10rem; */
+        }
+    </style>
+</head>
+<!-- onload="alert('Onload event triggered')" -->
+<body onresize="alert('onresize event triggered');" onoffline="alert('onoffline event triggered')" ononline="alert('ononline event triggered');">
+    <header>
+        <h1>
+            JavaScript Events <br>
+            Chirag Kanani emp(24DEV036)
+        </h1>
+    </header>
+    <table id="event">
+        <tr>
+            <td>  <h3> OnClick: </h3> </td>
+            <td> <button class="btn" onclick="alert('Onclick event : Button is cliked')">Click me</button> </td>
+            <td> <h3> OnInput: </h3></td>
+            <td>  <input type="text" oninput="alert('oninput event triggered')" name="" id=""></td>
+            <td> <h3 > OnChange: </h3> </td>
+            <td> <select name="" onchange="alert('onchange event triggered')" id="">
+                <option value="">choice 1</option>
+                <option value="">choice 2</option>
+                <option value="">choice 3</option>
+                <option value="">choice 4</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>  <h3> OnMouseOver</h3> </td>
+            <td onmouseover="alert('onmouseover event triggered')">  <p>hover me</p>   </td>
+            <td> <h3>  OnMouseOut </h3> </td>
+            <td onmouseout="alert('onmouseout event triggered')"> </td>
+            <td>  <h3>OnFocus</h3> </td>
+            <td> <input type="text" id="focus" name="" id=""></td>
+        </tr>
+        <tr>
+            <td>  <h3>OnMouseDown and Up</h3></td>
+            <td id="mousedown"> <p>Click mouse and hold down</p> </td>
+            <td> <h3> OnBlur / Focusout</h3> </td>
+            <td> <input type="text" onblur="alert('OnBlur event triggered \n input lost focus')" name="" id=""> </td>
+            <td> <h3 > OnDoubleClick</h3> </td>
+            <td> <button class="btn" ondblclick="alert('Ondblclick event : Button is cliked 2 times')">Click Double</button> </td>
+        </tr>
+        <tr>
+            <td> <h3 >  onSubmit </h3></td>
+            <td> <form action="" onsubmit="alert('onsubmit event triggered')"> <input type="submit" value="submit" class="btn" name="" id=""></form> </td>
+            <td> <h3> OnInvalid</h3> </td>
+            <td> <form action="" onsubmit="alert('onsubmit event triggered')"> <input type="text" oninvalid="alert('oninvalid event triggered \n input required')" size="3" required name="" id=""> <input type="submit" value="submit" class="btn" name="" id=""></form></td>
+            <td> <h3 > Onerror </h3> </td>
+            <td> <img src="hgello.jpg"   alt="image not available"> </td>
+            <!-- onerror="alert('onerror event triggered')" -->
+        </tr>
+        <tr>
+            <td>  <h3 > OnKeyDown </h3> </td>
+            <td> <input type="text" placeholder="press any key" id="onkeydown" name="" id=""> <p></p> </td>
+            <td>  <h3>  OnKeyUp </h3> </td>
+            <td>  <input type="text" placeholder="press key " onkeyup="alert('onkeyup event triggered');" name="" id=""></td>
+            <td> <h3 > Onmouseleave</h3> </td>
+            <td onmouseleave="alert('onmouseleave event triggered')" >  </td>
+        </tr>
+        <tr>
+            <td> <h3> OnContextmenu</h3></td>
+            <td oncontextmenu="alert('oncontextmenu event triggered\n right mousebutton is clicked')"><p>right click here</p>  </td>
+            <td> <h3 >onreset</h3> </td>
+            <td> <h3> <form action="" onreset="alert('onreset event triggered \n form is reset')"> <input type="reset" value="reset" name="" id=""></form> </h3></td>
+            <td> <h3> onselect</h3></td>
+            <td> <input type="text" value="select this text" onselect="alert('onselect event triggered')" name="" id=""> </td>
+        </tr>
+        <tr>
+            <td> <h3> oncopy</h3></td>
+            <td> <input type="text" value="try to copy text" oncopy="alert('oncopy event triggered');" name="" id=""> </td>
+            <td> <h3>  oncut</h3> </td>
+            <td> <input type="text" value="try to cut text" oncut="alert('oncut event triggered');" name="" id=""> </td>
+            <td>  <h3>onpaste</h3></td>
+            <td> <input type="text" value="try to paste text here" onpaste="alert('onpaste event triggered');" name="" id=""></td>
+        </tr>
+        <tr>
+            <td>  <h3> onkeypress</h3></td>
+            <td> <input type="text" onkeypress="alert('onkeypress event triggered \nkey is pressed')" placeholder="press key" name="" id=""> </td>
+            <td> onchange on checkbox </td>
+            <td> <input type="checkbox" onchange="alert('checkbox is checked')"  name="" id="">click chekbox </td> 
+            <td>  </td>
+        </tr>
+    </table>
+ 
+    
+    <script>
+
+        let focus = document.querySelector("#focus");
+        focus.onfocus = ()=>{
+            alert('onfocus triggered');
+            focus.style.background = "yellow";
+        }
+
+        let mousedown = document.querySelector("#mousedown");
+        mousedown.onmousedown = ()=>{
+            mousedown.style.color = "red"
+        }
+        mousedown.onmouseup = ()=>{
+            mousedown.style.color = "black"
+        }
+         
+        let onkeydown = document.querySelector("#onkeydown");
+        
+        onkeydown.addEventListener("keydown",(e)=>{
+            console.log(e.target)
+           e.target.parentElement.lastElementChild.innerText=`you clicked : ${e.key}`;
+                  
+        })
+      
+        
+        
+    </script>
+</body>
+</html>
+

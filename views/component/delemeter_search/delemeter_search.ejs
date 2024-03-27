@@ -1,0 +1,142 @@
+
+<main>
+  
+    <section class="userlist">
+        <div class="container userlist_container">
+            <div class="searchpanel">
+                <h1>Chirag Kanani (24DEV036)</h1>
+                
+                <form action="/delemeter_search" method="post">
+                    <div>
+                        <label for="">FirstName= _ ,</label>
+                        <label for="">LastName= ^ ,</label>
+                        <label for="">age= } ,</label>
+                        <label for="">City= : ,</label>
+                    </div>
+                    
+                    <div>
+                        <input type="text" autofocus name="string" id="" 
+                        <% if (filter) { %>
+                         value="<%= filter %>"
+                        <% } %>
+                        
+                        placeholder="Enter Search String">
+                        <input type="submit" name="" id="" value="Go">
+                    </div>
+                   
+                </form>
+              
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th  >No  </th>
+                        <th >First Name  </th>
+                        <th >Last Name </th>
+                        <th >Email </th>
+                        <th >Phone No </th>
+                        <th >Age </th>
+                        <th >Adhar No </th>
+                        <th >Gender </th>
+                        <th >City </th>
+                        <th >Pincode </th>
+                        <th >Created Date </th>
+                        
+                    </tr>
+                </thead>
+               <tbody>
+
+          <% users.forEach((user,index)=> { %>
+            <tr>
+               <td><%= user.id %></td>
+                <td><%= user.first_name%></td>
+                <td><%= user.last_name %></td>
+                
+                <td><%=user.email %></td>
+                <td><%= user.mobile_no %></td>
+                <td><%= user.age%></td>
+                <td><%= user.aadhar_no%></td>
+                <td><%= user.gender%></td>
+                <td><%= user.city%></td>
+                <td><%= user.pincode%></td>
+                <td><%= user.created_date.toUTCString()%></td>
+               
+            </tr> 
+          <% }) %>
+               
+
+               </tbody>
+               <tfoot>
+                <tr>
+                    <td colspan="11" > 
+                         <div class="opration">
+                       
+                    <div>
+                        <p>Showing <%= (limit * currentpage) - limit + 1 %> to <%= limit * currentpage %> of <%= TotalDataCount %> entries</p>
+                    </div>
+
+                    <div class="pageComponent">
+                        <div class="pageitem">
+                            <a href="/delemeter_search?page=<%= firstpage %>" class="firstpage "><i class="fa-solid fa-less-than"></i><i class="fa-solid fa-less-than"></i></a>
+                        </div> 
+                         <div class="pageitem">
+                            <a href="/delemeter_search?page=<%= currentpage==firstpage?firstpage:currentpage -1 %>" class="previouspage "><i class="fa-solid fa-less-than"  ></i></a>
+                        </div> 
+                         <div class="pageitem">
+                            <input type="text" class="currentpage " id="pageinput" value="<%= currentpage %>" />
+                                
+                         
+                        </div>
+                          <div class=" pageitem">
+                            <a href="/delemeter_search?page=<%= currentpage==lastpage?lastpage:currentpage + 1  %>" class="nextpage"><i class="fa-solid fa-greater-than"></i></a>
+                        </div> 
+                         <div class=" pageitem">
+                            <a href="/delemeter_search?page=<%= lastpage %>" class="lastpage"><i class="fa-solid fa-greater-than"></i><i class="fa-solid fa-greater-than"></i></a>
+                        </div>
+                    </div>
+                   
+                  
+
+                </div>
+                </td>
+                </tr>
+               </tfoot>
+            </table>
+
+        </div>
+    </section>
+
+
+</main>
+
+
+<script>
+    let currentpage = document.querySelector(".currentpage ");
+    let firstpage = document.querySelector(".firstpage ");
+    let lastpage = document.querySelector(".lastpage ");
+    let previouspage = document.querySelector(".previouspage");
+    let nextpage = document.querySelector(".nextpage ");
+
+    
+    let pageinput = document.querySelector("#pageinput")
+   
+
+  
+    if (Number ( currentpage.value) == 1 ) {
+        previouspage.style.pointerEvents= "none"
+        firstpage.style.pointerEvents= "none"
+    }else if(Number ( currentpage.value) == 250 ){
+       nextpage.style.pointerEvents = "none";
+       lastpage.style.pointerEvents = "none"
+    }
+
+    pageinput.addEventListener("change",()=>{
+        window.location.href = window.location.origin + window.location.pathname + `?page=${pageinput.value}`
+    })
+
+
+   
+ 
+   
+
+</script>

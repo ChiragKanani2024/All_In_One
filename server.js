@@ -6,6 +6,8 @@ const web = require("./Routes/web")
 const dynamic_table = require("./Routes/dynamic_table");
 const kuku_cube = require("./Routes/kuku_cube");
 const tictactoe = require("./Routes/tictactoe");
+const events = require("./Routes/events");
+const delemeter_search = require("./Routes/delemeter_search");
 
 
 
@@ -29,6 +31,8 @@ app.use(express.urlencoded({extended:true}))
 
 
 app.use("/kuku_cube",kuku_cube)
+app.use("/delemeter_search",delemeter_search)
+app.use("/events",events)
 app.use("/tictactoe",tictactoe)
 app.use("/dynamic_table",dynamic_table)
 app.use("/",web);
