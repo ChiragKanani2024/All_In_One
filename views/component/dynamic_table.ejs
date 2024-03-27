@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+</head>
+<style>
+    header{
+            text-align: center;
+            color: black;
+        }
+         tr,td{
+            width: 10rem;
+            height: 4rem;
+            border: 1px solid black;
+        }
+        tr:nth-of-type(even) td:nth-of-type(even), tr:nth-of-type(odd) td:nth-of-type(odd){
+            background-color: #2a7975;
+        }
+    
+     
+        #table1{
+            border: 1px solid #000;
+           display: inline-block;
+           padding: 0px;
+        }
+      
+        .btn{
+            width: 10rem;
+            height: 2rem;
+            background-color: #2a7975;
+            color: white;
+            border-radius: 1rem;
+        }
+       .colbtn{
+        position: relative;
+      
+       }
+</style>
+<body>
+    <header>
+        <h1>
+            JavaScript table <br>
+            Chirag Kanani emp(24DEV036)
+        </h1>
+    </header>
+
+    <main>
+<div class="container">
+
+    <table id="table1" cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr>
+                <td> </td>
+                <td>  </td>
+                <td>  </td>
+            </tr>
+            <tr>
+                <td> </td>
+                <td>  </td>
+                <td>  </td>
+            </tr> 
+            <tr>
+                <td> </td>
+                <td>  </td>
+                <td>  </td>
+            </tr>
+        </tbody>
+        
+        
+        
+    </table>
+    
+    <div class="colbtn" style="display: inline-block;"> <button id="addcol" class="btn">Add Column</button> <button id="deletecol" class="btn">Delete Column</button></div>
+    
+    <div class="rowbtn" > <button id="addrow" class="btn">Add Row</button> <button id="deleterow" class="btn">Delete Row</button> </div>
+</div>
+    <hr>
+
+   
+    </main>
+        
+        
+        <script >
+
+    let table1 = document.querySelector('#table1');
+    let addrow = document.querySelector("#addrow");
+    let deleterow = document.querySelector("#deleterow");
+    let addcol = document.querySelector("#addcol");
+    let deletecol = document.querySelector("#deletecol");
+
+    addrow.addEventListener("click",()=>{
+    
+    let tbody = table1.firstElementChild.lastElementChild
+
+    // console.log(tbody)   
+    table1.firstElementChild.append(tbody.cloneNode(true))
+})
+
+
+deleterow.addEventListener("click",()=>{
+
+    let tbody = table1.firstElementChild.childElementCount
+    console.log(tbody)
+    if(tbody>2){
+  table1.firstElementChild.lastElementChild.remove()
+
+    }else{
+        alert("mimimum 2 row required")
+    }
+})
+
+addcol.addEventListener("click",()=>{
+    let tbody = table1.firstElementChild.children
+    for (const tr of tbody) {
+    let td = document.createElement("td");
+        tr.append(td)
+        // console.log(tr)
+    }
+    
+})
+
+deletecol.addEventListener("click",()=>{
+    let tdcount = table1.firstElementChild.lastElementChild.childElementCount
+    console.log(tdcount)
+    let tbody = table1.firstElementChild.children
+    // console.log(tbody)
+    if(tdcount>2){
+        for (const tr of tbody) {
+            console.log(tr)
+            tr.lastElementChild.remove()
+        }
+    }else{
+        alert("Minimum Two column required")
+    }
+})
+
+
+        </script>
+    </body>
+    </html>
