@@ -13,7 +13,7 @@ const web = express.Router()
 
 
 try {
-    web.get('/',auth,HomeController().getHome)
+web.get('/',auth,HomeController().getHome)
 web.get("/register",guest,RegisterController().getform);
 web.post("/register",RegisterLogin,RegisterController().registerUser);
 web.get("/login",guest,LoginController().getform);
@@ -25,6 +25,16 @@ web.get('/forgotpassword',ForgotPasswordController().getForm)
 web.post('/forgotpassword',ForgotPasswordController().forgotform)
 web.get('/changepassword',ForgotPasswordController().getUpdatePassForm)
 web.post('/changepassword',ForgotPasswordController().UpdatePass)
+
+web.get('/html_template_1',(req,res)=>{
+    res.render("component/html_templets/template_1",{layout:"layouts/plainLayout.ejs"})
+})
+web.get('/html_template_2',(req,res)=>{
+    res.render("component/html_templets/template_2",{layout:"layouts/plainLayout.ejs"})
+})
+web.get('/html_template_3',(req,res)=>{
+    res.render("component/html_templets/template_3",{layout:"layouts/plainLayout.ejs"})
+})
 
 web.get("/sessionexpired",(req,res)=>{
     res.send("change Password Session Expired")

@@ -1,0 +1,626 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: #0A2259;
+    font-family: 'Nunito Sans', sans-serif;
+}
+@font-face {
+    font-family: "panchang";
+    src: url(./assets/Panchang_Complete/Fonts/OTF/Panchang-Semibold.otf);
+}
+.container{
+    max-width: 1080px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+
+/* header   */
+header{
+    background-color: #F0F6FF;
+    padding: 28px 0;
+    border-bottom: 2px solid  rgb(10, 34, 89,0.1);
+}
+
+
+.header_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_items{
+    display: flex;
+    align-items: center;
+}
+
+.nav_items ul{
+    display: flex;
+    list-style: none;
+}
+.nav_items ul li{
+    padding: 0 25px;
+}
+
+.nav_items ul li a{
+    text-decoration: none;
+
+}
+
+.header_btn{
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid  #0A2259 ;
+    padding: 13px;
+    width: 110px;
+    text-align: center;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+
+/* home section */
+
+.home{
+    background-color: #F0F6FF;
+    padding: 50px 0;
+}
+
+
+.home_container{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+.home_intro .title  h1{
+    font-size: 55px;
+    font-weight: bolder;
+    font-family: "panchang";
+    line-height: 75px;
+}
+
+.home_intro .desc{
+    padding: 45px 0;
+    line-height: 30px;
+    font-size: 18px;
+    color: #6A88B6;
+    max-width:  450px;
+}
+
+.btn_started{
+    display: inline-block;
+    color: white;
+    background-color: #F2A33A;
+    padding: 14px;
+    text-decoration: none;
+    width: 150px;
+    text-align: center;
+    margin-right: 10px;
+    font-size: 18px;
+
+}
+
+.btn_migration{
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid  #0A2259 ;
+    padding: 13px;
+    width: 210px;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+.nextpage{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 25px;
+    
+}
+
+/* company logos */
+
+.complogo{
+    background-color: white;
+
+}
+.complogo_logos .logo{
+    max-width: calc((100%/4));
+}
+.complogo_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 45px 0;
+}
+
+.complogo_para{
+    width: 150px;
+}
+
+.complogo_logos{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 85%;
+}
+
+/* sec3 */
+
+.sec3_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 0;
+}
+
+.sec3_first{
+    max-width: 500px;
+
+}
+.sec3_first img {
+    width: 480px;
+}
+
+.sec3_second{
+    max-width: 550px;
+    padding: 10px;
+}
+
+.sec3_second .title h2{
+    font-size: 35px;
+    font-weight: bolder;
+    font-family: "panchang";
+    line-height: 55px;
+}
+
+.sec3_service_row{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px  -10px 0;
+}
+
+.sec3_service_col{
+    width: calc(100%/2);
+    padding: 0 10px;
+    
+}
+
+.sec3_service_card{
+    padding: 10px;
+    opacity: 0.7;
+}
+
+.sec3_service_card .title h3{
+        font-size: 19px;
+        /* font-weight: bolder; */
+        font-family: 'Open Sans', sans-serif;
+        margin-bottom: 10px;
+        color: #6784b1;
+}
+
+.sec3_service_card .desc{
+    font-size: 17px;
+    color: #AAAAAA;
+}
+
+
+/* sec4 */
+
+.sec4{
+    background-color: #F0F6FF;
+}
+.sec4_container{
+   padding: 80px 0;
+}
+
+.sec4_title{
+    text-align: center;
+    width: 55rem;
+    margin: 0 auto;
+}
+.sec4_title h2{
+    font-size: 40px;
+    font-weight: bolder;
+    font-family: "panchang";
+    line-height: 60px;
+}
+
+  
+.sec4_row{
+    display: flex;
+    margin: 40px -15px 0;
+    flex-wrap: wrap;
+
+}
+
+.sec4_col{
+    width: calc(100%/4);
+    padding: 0 15px;
+    margin-top: 10px;
+
+}
+
+.sec4_card{
+    padding: 15px;
+    background-color: white;
+    text-align: center;
+}
+
+.sec4_card .sec4_service{
+    background-color: #F0F6FF;
+    width: 100%;
+    padding: 10px;
+}
+
+.sec4_card .sec4_service .service_img{
+    display: flex;
+    align-items: center;
+}
+.sec4_service{
+    opacity: 0.8;
+}
+.sec4_card .sec4_service .service_img img{
+        background-color: white;
+        padding: 5px;
+        border-radius: 50%;
+        margin-right: 10px;
+}
+.sec4_card .sec4_service .service_img h3{
+            font-size: 17px;
+            font-family: 'Open Sans', sans-serif;
+    color: #0A2259;
+
+} 
+
+.sec4_card .price{
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+    align-items: end;
+}
+
+.sec4_card .price h3{
+    font-size: 25px;
+    font-weight: bolder;
+    font-family: "panchang";
+    color: #0A2259;
+    
+}
+
+
+.service_moredetail_btn{
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid  rgb(10, 34, 89);
+    padding: 10px;
+    width: 100%;
+}
+
+.sec4_card:hover{
+        background-color: #0a2259;
+        
+}
+
+.sec4_card:hover .service_moredetail_btn{
+    color: white;
+    background-color: #F2A33A;
+}
+
+.sec4_card:hover .price > H3{
+    color: white ;
+
+}
+.sec4_card:hover .price > p{
+    color: white ;
+}
+
+
+/* section 5 */
+
+.sec5{
+    padding: 100px 0;
+}
+
+.sec5_container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.domain_group{
+    min-width:  400px;
+}
+
+.domain{
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    opacity: 0.3;
+   
+}
+.domain .img i{
+    font-size: 40px;
+    margin-right: 15px;
+    color:  #0A2259;
+
+}
+.domain h3{
+    font-size: 25px;
+    font-weight: bolder;
+    font-family: "panchang";
+    margin-left: 15px;
+    color:  #0A2259;
+}
+.domain:hover{
+    background-color:  #F0F6FF;
+    opacity: 0.7;
+}
+
+.selected{
+    background-color:  #F0F6FF;
+    opacity: 0.7;
+}
+
+.domain_desc{
+    padding: 10px;
+}
+
+.domain_desc .title h2{
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: "panchang";
+    line-height: 47px
+    
+}
+
+.domain_desc .desc p{
+    color: #AAAAAA;
+    padding: 20px 0;
+    line-height: 28px;
+    font-size: 18px;
+}
+
+.functions_row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.functions_col{
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
+    width: calc(100%/2);
+    padding: 8px 0;
+}
+
+.functions_col p,img{
+    color: #AAAAAA;
+    font-size: 20px;
+}
+
+.domain_desc_btn{
+    display: inline-block;
+    color: white;
+    background-color: #F2A33A;
+    padding: 14px;
+    text-decoration: none;
+    width: 150px;
+    text-align: center;
+   margin-top: 20px;
+    font-size: 18px;
+}
+
+.block{
+    display: block;}
+.none{
+    display: none;
+}  
+
+/* sec6 */
+.sec6{
+    padding: 60px 0;
+}
+
+.sec6_top{
+    display: flex;
+    padding: 30px 0;
+    justify-content: space-between  ;
+    align-items: center;
+}
+.sec6_top .title h2{
+    font-size: 35px;
+    font-weight: bolder;
+    font-family: "panchang";
+    line-height: 47px;
+    max-width: 550px;
+}
+.sec6_top .movebtn i{
+    color: #0A2259;
+    padding: 10px;
+    background-color:#F0F6FF;
+    border-radius: 50%;
+    font-size: 20px;
+    margin: 0 8px;
+
+}
+
+.sec6_row{
+    display: flex;
+    margin: 30px -15px;
+    overflow: scroll;
+    scrollbar-width: none;
+
+}
+.sec6_col{
+    padding: 0 15px;
+    min-width: 320px;
+
+}
+.sec6_card{
+    padding: 10px;
+    background-color: #F0F6FF;
+}
+
+
+
+.sec6_inner_card{
+    background-color: white;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sec6_inner_card .rating{
+    padding: 18px 0 ;
+}
+
+.sec6_inner_card .para p{
+    opacity: 0.5;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.sec6_inner_card .name p{
+    font-size: 16px;
+    padding: 5px 0;
+    font-family: "panchang";
+}
+
+
+.sec6_inner_card .role p{
+    color: #AAAAAA;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* section 7 */
+.sec7{
+    background-color:  #F0F6FF;
+}
+
+.sec7_container{
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sec7_first{
+    width: 500px;
+}
+
+.sec7_second img{
+    width: 450px;
+}
+
+.sec7_first .title h2{
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: "panchang";
+    line-height: 47px
+    
+}
+
+.sec7_first .desc p{
+    padding: 30px 0;
+    font-size: 18px;
+}
+
+.sec7_freetrial_btn{
+    display: inline-block;
+    color: white;
+    background-color: #F2A33A;
+    padding: 14px ;
+    text-decoration: none;
+    width: 170px;
+    text-align: center;
+   margin-top: 20px;
+    font-size: 18px;
+}
+
+.sec7_plans_btn {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid  rgb(10, 34, 89);
+    padding: 14px;
+    margin-left: 10px;
+    width: 170px;
+    text-align: center;
+    
+}
+
+
+
+/* footer */
+
+footer{
+    background-color: #0A2259;
+}
+footer p,h3,i{
+    color: white;
+}
+.footer_row{
+    display: flex;
+    padding: 50px 0;
+    justify-content: space-between;
+}
+
+.footer_col_first{
+    width: 330px;
+
+}
+.footer_col_first .para p{
+
+    padding: 20px 0;
+    opacity: 0.7;
+    font-size: 17px;
+    line-height: 25px;
+}
+
+.links_group{
+    display: flex;
+    margin-top: 10px;
+}
+
+.links_group li i{
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.footer_col_second .row{ 
+    display: flex;
+}
+
+.footer_col_second .row .col{ 
+    padding:0 30px;
+
+}
+.footer_col_second .row .col .title h3{ 
+    font-size: 20px;
+    padding: 10px;
+    font-family: "panchang";
+}
+
+.footer_col_second .row .col .items p{ 
+    font-size: 18px;
+    padding: 7px;
+    
+}
