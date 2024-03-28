@@ -20,6 +20,13 @@ web.get("/login",guest,LoginController().getform);
 web.post("/login",RegisterLogin,LoginController().loginUser);
 web.get("/activateuser",RegisterController().activeUser)
 
+
+//log out
+web.get("/logout",(req,res)=>{
+    res.clearCookie('token');
+    res.redirect("/login");
+})
+
 //forgot password
 web.get('/forgotpassword',ForgotPasswordController().getForm)
 web.post('/forgotpassword',ForgotPasswordController().forgotform)

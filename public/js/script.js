@@ -53,12 +53,14 @@ if (location.pathname == '/login') {
             text: responce.alert
           });
        }else{
-       Swal.fire({
+      await Swal.fire({
             icon: "success",
-            title: "You are Registered",
+            title: "You are Loggedin",
             text: responce.alert,
             showConfirmButton:false,
-          });    
+            showCloseButton: true
+          })    
+          location.pathname = "/"
        }
     })
 }
