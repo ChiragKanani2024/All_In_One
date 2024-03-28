@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
     host            : 'localhost',
     user            : 'root',
     password        : 'password',
-    database        : 'all_in_one'
+    database        : process.env.DATABASE
 }).promise()
 
 module.exports = connection;
