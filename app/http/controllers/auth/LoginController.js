@@ -18,7 +18,7 @@ const LoginController = ()=>{
                             res.cookie('token' , token, { maxAge: 5000*1000 })
                             return res.send({
                                 success:true,
-                                alert:"Welcome to Chirag's Tasks",
+                                alert:"Welcome to Chirag's Tasks"
                                 })
                         }else{
                         return res.send({success:false,alert:"Wrong Credential Try Again"})

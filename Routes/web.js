@@ -33,13 +33,13 @@ web.post('/forgotpassword',ForgotPasswordController().forgotform)
 web.get('/changepassword',ForgotPasswordController().getUpdatePassForm)
 web.post('/changepassword',ForgotPasswordController().UpdatePass)
 
-web.get('/html_template_1',(req,res)=>{
+web.get('/html_template_1',auth,(req,res)=>{
     res.render("component/html_templets/template_1",{layout:"layouts/plainLayout.ejs"})
 })
-web.get('/html_template_2',(req,res)=>{
+web.get('/html_template_2',auth,(req,res)=>{
     res.render("component/html_templets/template_2",{layout:"layouts/plainLayout.ejs"})
 })
-web.get('/html_template_3',(req,res)=>{
+web.get('/html_template_3',auth,(req,res)=>{
     res.render("component/html_templets/template_3",{layout:"layouts/plainLayout.ejs"})
 })
 

@@ -137,3 +137,14 @@ if (location.pathname == "/changepassword") {
        }
     })
 }
+
+let register = document.querySelector("#register")
+let login = document.querySelector("#login")
+let logout = document.querySelector("#logout")
+
+
+if(document.cookie.includes("token")){
+    register.classList.toggle("hidden");
+    login.classList.toggle("hidden");
+    logout.classList.toggle("hidden");
+}

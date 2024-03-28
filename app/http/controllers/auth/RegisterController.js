@@ -40,7 +40,7 @@ const RegisterController = ()=>{
                        return res.send({
                         success:true,
                         alert:"Click Below Link for Activate Your account",
-                        activationLink:`http://localhost:3000/activateuser?email=${req.body.email}&activationKey=${activation_key}`
+                        activationLink:`http://${req.hostname}:3000/activateuser?email=${req.body.email}&activationKey=${activation_key}`
                         })
                         }else{
                             return res.send({success:false,alert:"Something Went Wrong Try Again"})
