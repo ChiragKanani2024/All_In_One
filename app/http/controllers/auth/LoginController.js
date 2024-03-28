@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const LoginController = ()=>{
     return {
             getform(req,res){
-                res.render("auth/login");
+                res.render("auth/login",{layout:"layouts/layout.ejs"});
             },
             async loginUser(req,res){
                 let result = await conn.query(`select * from Users where email = '${req.body.email}'`)

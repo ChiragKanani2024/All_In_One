@@ -5,7 +5,7 @@ const tictactoe = express.Router();
 try {
 
 tictactoe.get("/",auth,(req,res)=>{
-        res.render("component/tictactoe",{ layout: 'plainLayout.ejs' })
+        res.render("component/tictactoe",{ layout: 'layouts/plainLayout.ejs' })
 })
 
 } catch (error) {

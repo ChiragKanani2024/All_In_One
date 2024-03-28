@@ -5,7 +5,7 @@ const kuku_cube = express.Router();
 try {
 
 kuku_cube.get("/",auth,(req,res)=>{
-        res.render("component/kuku_cube",{ layout: 'plainLayout.ejs' })
+        res.render("component/kuku_cube",{ layout: 'layouts/plainLayout.ejs' })
 })
 
 } catch (error) {

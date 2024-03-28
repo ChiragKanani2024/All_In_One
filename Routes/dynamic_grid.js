@@ -37,7 +37,13 @@ dynamic_grid.all("/", auth,middleware, async (req, res) => {
           paginationReturn.limit,
           paginationReturn.offSet
         );
-
+        let tablelistArr = [];
+        tabelList.forEach(element => {
+          for (const key in element) {
+            tablelistArr.push(element[key])
+          }
+        });
+       
         res.render("component/dynamic_grid/tablelisting", {
           currentpage: paginationReturn.currentPage,
           lastpage: paginationReturn.lastPage,
@@ -45,16 +51,23 @@ dynamic_grid.all("/", auth,middleware, async (req, res) => {
           route: "dynamic_grid",
           Result: result,
           showTable: true,
-          tablelist: tabelList,
+          tablelist: tablelistArr,
           layout:"layouts/dynamic_grid.ejs"
         });
         
 
       } else {
         let tabelList = await selectquery.tableList();
+        let tablelistArr = [];
+        tabelList.forEach(element => {
+          for (const key in element) {
+            tablelistArr.push(element[key])
+          }
+        });
+        
         res.render("component/dynamic_grid/tablelisting", {
           showTable: false,
-          tablelist: tabelList,
+          tablelist: tablelistArr,
           layout:"layouts/dynamic_grid.ejs"
         });
       }

@@ -5,7 +5,7 @@ const events = express.Router();
 try {
 
 events.get("/",auth,(req,res)=>{
-        res.render("component/events",{ layout: 'plainLayout.ejs' })
+        res.render("component/events",{ layout: 'layouts/plainLayout.ejs' })
 })
 
 } catch (error) {

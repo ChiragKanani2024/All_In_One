@@ -15,6 +15,7 @@ const dynamic_grid = require("./Routes/dynamic_grid");
 
 
 const expresslayout = require("express-ejs-layouts")
+app.set('layout', './layouts/layout')
 const  cookieParser = require('cookie-parser');
 const flash = require('express-flash')
 

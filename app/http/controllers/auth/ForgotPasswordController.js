@@ -21,7 +21,7 @@ const ForgotPasswordController = ()=>{
                        diff =parseInt(diff/(1000*60));
                      
                         if (diff<3) {
-                        res.render("auth/forgotpassinputs",{ layout: 'layout2.ejs' })
+                        res.render("auth/forgotpassinputs",{ layout: 'layouts/layout2.ejs' })
                         }else{
                         return res.send("Link Expired Generate Again")
                         }

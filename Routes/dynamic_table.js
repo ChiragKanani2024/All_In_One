@@ -7,7 +7,7 @@ const dynamic_table = express.Router();
 try {
 
 dynamic_table.get("/",auth,(req,res)=>{
-        res.render("component/dynamic_table",{ layout: 'plainLayout.ejs' })
+        res.render("component/dynamic_table",{ layout: 'layouts/plainLayout.ejs' })
 })
 
 } catch (error) {

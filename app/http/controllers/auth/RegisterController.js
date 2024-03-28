@@ -7,7 +7,7 @@ const conn = require('../../../../mysql_connection');
 const RegisterController = ()=>{
     return {
             getform(req,res){
-                res.render("auth/register");
+                res.render("auth/register",{layout:"layouts/layout.ejs"});
             },
             async registerUser(req,res){
                 try {
