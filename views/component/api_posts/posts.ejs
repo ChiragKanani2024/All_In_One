@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+    <link rel="stylesheet" href="/css/api_posts.css">
+    <script src="/js/api_posts/fetchData.js"></script>
+   
+</head>
+<body>
+    <main>
+        <section class="posts">
+            <div class="container">
+
+                <div class="search">
+                    <input type="text" id="search_text" placeholder="Enter Search String">
+                    <button id="go">Go</button>
+                </div>
+                <table>
+                    <thead id="postHeader">
+                   
+                    </thead>
+                    <tbody id="postsData">
+                       
+                    </tbody >
+                    <tfoot>
+                        <tr>
+                            <td colspan="7"> 
+                                <div class="pagination">
+                                    <button class="page-btn" disabled data-val="1" id="firstpage">&lt</button>
+                                    <button class="page-btn" disabled data-val="1" id="previouspage">&lt&lt</button>
+                                    <button class="page-btn" data-val="1" id="currentpage">1</button>
+                                    <button class="page-btn" data-val="2" id="nextpage">&gt&gt</button>
+                                    <button class="page-btn" data-val="" id="lastpage">&gt</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+    </main>
+<script src="/js/api_posts/posts.js"></script>
+</body>
+</html>

@@ -11,6 +11,7 @@ const delemeter_search = require("./Routes/delemeter_search");
 const student_listing = require("./Routes/student_listing");
 const job_application = require("./Routes/job_application");
 const dynamic_grid = require("./Routes/dynamic_grid");
+const api_posts = require("./Routes/api_posts");
 
 
 
@@ -44,6 +45,7 @@ app.use(express.urlencoded({extended:true}))
 
 
 app.use("/kuku_cube",kuku_cube)
+app.use("/api_posts",api_posts)
 app.use("/dynamic_grid",dynamic_grid)
 app.use("/student_listing",student_listing)
 app.use("/delemeter_search",delemeter_search)
