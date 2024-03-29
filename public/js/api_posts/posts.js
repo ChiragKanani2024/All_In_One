@@ -14,7 +14,7 @@
     const appendData = (currentpage = 1)=>{
         let str = '';
         data.slice(10*Number(currentpage)-10,10*Number(currentpage)).forEach(e=> {
-            str += ` <tr><td> ${e.id}</td></td><td>${e.title} </td><td  >${e.content.slice(0,50)}.... </td><td><img src="${e.thumbnail}" alt=""><td>${e.status} </td><td>${e.category} </td><td><a class="viewpost"  href="/posts/post-detail?${e.id}">View Detail</a></td></tr>`
+            str += ` <tr><td> ${e.userId}</td></td><td>${e.id} </td><td  >${e.title} </td><td>${e.body.slice(0,50)}....<td><a class="viewpost"  href="api_posts/post-detail?${e.id}">View Detail</a></td></tr>`
         });
         postsData.innerHTML = str;
     }
@@ -25,9 +25,9 @@
                  data = await  getposts('posts');
                  let thead = '<tr>'
                  for (const key in data[0]) {
-                    if (!['slug','url','image','publishedAt','updatedAt'	,'userId'].includes(key)) {
+                    
                         thead+=`<th>${key}</th>`
-                    }
+                 
                  }
                  thead+=' <th>View</th></tr>';
                  postheader.innerHTML = thead;
@@ -81,7 +81,7 @@
        let str = '';
        data = searchData;
        data.slice(0,10).forEach(e=> {
-                    str += ` <tr><td> ${e.id}</td></td><td>${e.title} </td><td  >${e.content.slice(0,50)}.... </td><td><img src="${e.thumbnail}" alt=""><td>${e.status} </td><td>${e.category} </td><td><a class="viewpost"  href="/posts/post-detail?${e.id}">View Detail</a></td></tr>`
+                    str += `  <tr><td> ${e.userId}</td></td><td>${e.id} </td><td  >${e.title} </td><td>${e.body.slice(0,50)}....<td><a class="viewpost"  href="api_posts/post-detail?${e.id}">View Detail</a></td></tr>`
                 });
                 postsData.innerHTML = str;
                 lastpage.dataset.val = Math.ceil(data.length/10);
