@@ -30,12 +30,12 @@
 
    async function showCommentrange(){
        let id = showComment.dataset.id
-        let postComment = await getposts(`posts/${id}/comments`)
+         postComment = await getposts(`posts/${id}/comments`)
         
         if (postComment.length >1) {
             let str = ` <thead><tr><th colspan="3"> Comments</th></tr></thead><tbody >`;
-            if (postComment.length>5) {
-                postComment.slice(0,5).forEach(e => {
+            if (postComment.length>2) {
+                postComment.slice(0,2).forEach(e => {
                     str += `<tr><td>${e.id}</td><td>${e.name}</td><td>${e.body}</td></tr>`
                 });
             str += '<tr><td colspan="3">  <button  onclick="showAllComment()">Show All Comment</button></td></tr></tbody>'
