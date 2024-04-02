@@ -21,28 +21,6 @@ student_listing.use(session({
     saveUninitialized: true
 })) 
 
-
-
-
-
-// student.get("/pageComponent",async(req,res)=>{
-//     try {
-//         let limit = process.env.limit;
-//         let offset = 0
-//         if (req.query.page) {
-//              offset = limit * (Number( req.query.page)-1)
-//         }
-      
-//         let result = await getData(offset,limit);
-        
-//        res.render("index",{title:"Home",users:result[0],firstpage:1,lastpage:250})
-//     } catch (error) {
-//         console.log(error)
-//     }
-// })
-
-
-
 student_listing.all("/searchById",auth,searchById)
 student_listing.all("/searchByFilter",auth,searchByFilter)
 
@@ -153,21 +131,5 @@ student_listing.get("/studentResult/:id",auth,async(req,res)=>{
         console.log(error)
     }
 })
-
-
-
-
-
-
-
-
-// student_listing.get("/pageComponent",auth,(req,res)=>{
-//     try {
-    
-//         res.render("pageComponent",{title:"Pagination",firstpage:1,lastpage:250})
-//     } catch (error) {
-//         console.log(error)
-//     }
-// })
 
 module.exports = student_listing
