@@ -5,34 +5,44 @@ const insertHelper = require('../../databaseHelpers/insertHelper');
 
 const insertController = ()=>{
     return {
-           async getform(req,res){
-                let genderRadio =await comboGenerate('gender_radio');
-                let relationShipCombo = await comboGenerate('relationship_combo');
-                let locationCombo = await comboGenerate('prefered_location_combo');
-                let departmentCombo = await comboGenerate('department_combo')
-                let statesCombo = await comboGenerate('state_combo');
-                
-                let combos = {genderRadio,relationShipCombo,locationCombo,departmentCombo,statesCombo}
-               let data={
-                company_name:[''],
-                work_experience_designation:[''],
-                from:[''],
-                to:[''],
-                referance_name:[''],
-                referance_number:[''],
-                referance_relation:['']
-               }
-                res.render("component/jobApplication/insertForm",{combos,data,layout:"layouts/job_application_layout.ejs"})
+                async getform(req,res){
+                    try {
+                        let genderRadio =await comboGenerate('gender_radio');
+                        let relationShipCombo = await comboGenerate('relationship_combo');
+                        let locationCombo = await comboGenerate('prefered_location_combo');
+                        let departmentCombo = await comboGenerate('department_combo')
+                        let statesCombo = await comboGenerate('state_combo');
+                        
+                        let combos = {genderRadio,relationShipCombo,locationCombo,departmentCombo,statesCombo}
+                       let data={
+                        company_name:[''],
+                        work_experience_designation:[''],
+                        from:[''],
+                        to:[''],
+                        referance_name:[''],
+                        referance_number:[''],
+                        referance_relation:['']
+                       }
+                        res.render("component/jobApplication/insertForm",{combos,data,layout:"layouts/job_application_layout.ejs"})
+                    } catch (error) {
+                        console.log(error)
+                    }
+               
             },
             async getform2(req,res){
-                let genderRadio =await comboGenerate('gender_radio');
-                let relationShipCombo = await comboGenerate('relationship_combo');
-                let locationCombo = await comboGenerate('prefered_location_combo');
-                let departmentCombo = await comboGenerate('department_combo')
-                let statesCombo = await comboGenerate('state_combo');
-                
-                let combos = {genderRadio,relationShipCombo,locationCombo,departmentCombo,statesCombo}
-                res.render("component/jobApplication/insertForm2",{combos,layout:"layouts/job_application_layout.ejs"})
+                try {
+                    let genderRadio =await comboGenerate('gender_radio');
+                    let relationShipCombo = await comboGenerate('relationship_combo');
+                    let locationCombo = await comboGenerate('prefered_location_combo');
+                    let departmentCombo = await comboGenerate('department_combo')
+                    let statesCombo = await comboGenerate('state_combo');
+                    
+                    let combos = {genderRadio,relationShipCombo,locationCombo,departmentCombo,statesCombo}
+                    res.render("component/jobApplication/insertForm2",{combos,layout:"layouts/job_application_layout.ejs"})
+                } catch (error) {
+                    console.log(error)
+                }
+               
             },
             async insertData(req,res){
                 let employee_id;

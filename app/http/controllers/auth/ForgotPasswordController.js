@@ -6,7 +6,12 @@ const conn = require('../../../../mysql_connection');
 const ForgotPasswordController = ()=>{
     return{
         getForm(req,res){
-            res.render("auth/forgotpass")
+            try {
+                res.render("auth/forgotpass")
+                
+            } catch (error) {
+                console.log(error)
+            }
         },
         async getUpdatePassForm(req,res){
             try {

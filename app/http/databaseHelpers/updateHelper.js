@@ -5,33 +5,38 @@ const getDataHelper = require("./getDataHelper");
 const updateHelper = ()=>{
     return {
        async basic_update(req,res,employee_id){
-                let basic_details = {
-                    firstname:req.body.first_name,
-                    lastname:req.body.last_name,
-                    designation:req.body.basic_designation,
-                    address1:req.body.address1,
-                    address2:req.body.address2,
-                    email:req.body.email,
-                    phoneno:req.body.phone,
-                    city:req.body.city,
-                    state:req.body.state,
-                    gender:req.body.gender,
-                    zipcode:req.body.zipcode,
-                    status:req.body.relationship_status,
-                    dob:req.body.dob,
-                    prefered_location:req.body.prefered_location,
-                    current_ctc:req.body.preferance_curr_ctc,
-                    notic_period:req.body.preferance_notice,
-                    expected_ctc:req.body.preferance_expec_ctc,
-                    department:req.body.department
-                }
-                conn.query(`update  basic_detail SET ? where employee_id = ${employee_id}` ,basic_details).then((res)=>{
-                }).catch((err)=>{
-                    console.log(err)
-                })
+        try {
+            
+            let basic_details = {
+                firstname:req.body.first_name,
+                lastname:req.body.last_name,
+                designation:req.body.basic_designation,
+                address1:req.body.address1,
+                address2:req.body.address2,
+                email:req.body.email,
+                phoneno:req.body.phone,
+                city:req.body.city,
+                state:req.body.state,
+                gender:req.body.gender,
+                zipcode:req.body.zipcode,
+                status:req.body.relationship_status,
+                dob:req.body.dob,
+                prefered_location:req.body.prefered_location,
+                current_ctc:req.body.preferance_curr_ctc,
+                notic_period:req.body.preferance_notice,
+                expected_ctc:req.body.preferance_expec_ctc,
+                department:req.body.department
+            }
+            conn.query(`update  basic_detail SET ? where employee_id = ${employee_id}` ,basic_details).then((res)=>{
+            }).catch((err)=>{
+                console.log(err)
+            })
+        } catch (error) {
+            console.log(error)
+        }
         },
         async board_update(req,res,employee_id){
-            
+            try {
                 let board = ["SSC","HSC"]
                 board.forEach(async(item,index)=>{
                     let details = {
@@ -48,6 +53,10 @@ const updateHelper = ()=>{
                      
                 })   
            
+            } catch (error) {
+                console.log(error)
+            }
+               
         },
         async degree_update(req,res,employee_id){
             try {

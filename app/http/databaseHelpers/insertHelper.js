@@ -3,7 +3,7 @@ const conn = require("../../../mysql_connection");
 const insertHelper = ()=>{
     return {
        async basic_insert(req,res){
-            
+            try {
                 let basic_details = {
                     firstname:req.body.first_name,
                     lastname:req.body.last_name,
@@ -27,10 +27,14 @@ const insertHelper = ()=>{
                 let result = await conn.query('insert into basic_detail SET ?',basic_details);
                 return result
            
+            } catch (error) {
+                console.log(error)
+            }
+               
             
         },
         async board_insert(req,res,employee_id){
-            
+            try {
                 let board = ["SSC","HSC"]
                 board.forEach(async(item,index)=>{
                     let details = {
@@ -48,6 +52,10 @@ const insertHelper = ()=>{
                      
                 })   
            
+            } catch (error) {
+                console.log(error)
+            }
+                
         },
         async degree_insert(req,res,employee_id){
             try {
