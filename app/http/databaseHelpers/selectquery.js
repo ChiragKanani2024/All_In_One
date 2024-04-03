@@ -5,9 +5,8 @@ const selectData = async (query, limit = 0, offset = 0) => {
     let result = await conn.query(`${query} limit ${offset},${limit}`);
     return result;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
- 
 };
 
 const selectDataCount = async (query) => {
@@ -17,9 +16,8 @@ const selectDataCount = async (query) => {
     );
     return result[0][0];
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
- 
 };
 
 const tableList = async () => {
@@ -27,9 +25,8 @@ const tableList = async () => {
     let result = await conn.query("show tables");
     return result[0];
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
- 
 };
 
 module.exports = {
