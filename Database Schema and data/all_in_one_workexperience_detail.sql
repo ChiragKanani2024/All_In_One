@@ -31,7 +31,8 @@ CREATE TABLE `workexperience_detail` (
   `to` date NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique1` (`employee_id`,`comname`,`from`,`to`,`designation`),
-  KEY `emp2_idx` (`employee_id`)
+  KEY `emp2_idx` (`employee_id`),
+  CONSTRAINT `fk_workexperience_detail_1` FOREIGN KEY (`employee_id`) REFERENCES `basic_detail` (`employee_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-28 12:20:00
+-- Dump completed on 2024-04-03  9:51:42

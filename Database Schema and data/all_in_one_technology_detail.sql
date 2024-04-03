@@ -31,8 +31,9 @@ CREATE TABLE `technology_detail` (
   `expert` char(1) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index4` (`employee_id`,`technology`),
-  KEY `emp10_idx` (`employee_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `emp10_idx` (`employee_id`),
+  CONSTRAINT `fk_technology_detail_1` FOREIGN KEY (`employee_id`) REFERENCES `basic_detail` (`employee_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +42,7 @@ CREATE TABLE `technology_detail` (
 
 LOCK TABLES `technology_detail` WRITE;
 /*!40000 ALTER TABLE `technology_detail` DISABLE KEYS */;
-INSERT INTO `technology_detail` VALUES (4,36,'php','0','0','1'),(5,38,'php','1','0','0'),(6,47,'php','0','1','0'),(7,47,'mysql','0','0','1'),(8,48,'php','0','1','0'),(9,48,'mysql','0','0','1'),(22,51,'mysql','0','0','1'),(23,52,'php','0','1','0'),(24,52,'mysql','1','0','0'),(25,52,'laravel','0','1','0'),(26,52,'oracle','0','0','1'),(27,53,'php','0','1','0'),(28,53,'mysql','1','0','0'),(29,53,'laravel','0','1','0'),(30,53,'oracle','0','0','1'),(31,54,'php','0','1','0'),(32,54,'mysql','1','0','0'),(33,54,'laravel','0','1','0'),(34,54,'oracle','0','0','1'),(35,55,'php','0','1','0'),(36,55,'mysql','1','0','0'),(37,55,'laravel','0','1','0'),(38,55,'oracle','0','0','1'),(39,59,'php','0','0','1'),(40,34,'laravel','1','0','0'),(41,38,'mysql','0','0','1'),(42,38,'laravel','1','0','0'),(44,38,'oracle','0','1','0'),(45,60,'mysql','1','0','0'),(46,61,'php','0','0','1'),(47,61,'mysql','0','1','0'),(48,61,'laravel','1','0','0'),(49,61,'oracle','0','1','0'),(50,63,'php','0','1','0'),(51,63,'mysql','1','0','0'),(52,63,'laravel','0','1','0'),(53,64,'mysql','0','1','0');
+INSERT INTO `technology_detail` VALUES (4,36,'php','0','0','1'),(5,38,'php','1','0','0'),(6,47,'php','0','1','0'),(7,47,'mysql','0','0','1'),(8,48,'php','0','1','0'),(9,48,'mysql','0','0','1'),(22,51,'mysql','0','0','1'),(23,52,'php','0','1','0'),(24,52,'mysql','1','0','0'),(25,52,'laravel','0','1','0'),(26,52,'oracle','0','0','1'),(27,53,'php','0','1','0'),(28,53,'mysql','1','0','0'),(29,53,'laravel','0','1','0'),(30,53,'oracle','0','0','1'),(31,54,'php','0','1','0'),(32,54,'mysql','1','0','0'),(33,54,'laravel','0','1','0'),(34,54,'oracle','0','0','1'),(35,55,'php','0','1','0'),(36,55,'mysql','1','0','0'),(37,55,'laravel','0','1','0'),(38,55,'oracle','0','0','1'),(39,59,'php','0','0','1'),(40,34,'laravel','1','0','0'),(41,38,'mysql','0','0','1'),(42,38,'laravel','1','0','0'),(44,38,'oracle','0','1','0'),(45,60,'mysql','1','0','0'),(46,61,'php','0','0','1'),(47,61,'mysql','0','1','0'),(48,61,'laravel','1','0','0'),(49,61,'oracle','0','1','0'),(50,63,'php','0','1','0'),(51,63,'mysql','1','0','0'),(52,63,'laravel','0','1','0'),(53,64,'mysql','0','1','0'),(54,65,'oracle','1','0','0');
 /*!40000 ALTER TABLE `technology_detail` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-28 12:20:00
+-- Dump completed on 2024-04-03  9:51:42
