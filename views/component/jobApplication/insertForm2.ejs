@@ -1,390 +1,415 @@
 <div class="container ">
     <div class="form2">
-    <div class="form-head">
-        <p class="live" >Basic Detail</p>
-        <p>Education Detail</p>
-        <p>Work Experience</p>
-        <p>Language Known</p>
-        <p>Technology Known</p>
-        <p>Referance Contact</p>
-        <p>Preferances</p>
-    </div>
+        <div class="form-head">
+            <p class="live">Basic Detail</p>
+            <p>Education Detail</p>
+            <p>Work Experience</p>
+            <p>Language Known</p>
+            <p>Technology Known</p>
+            <p>Referance Contact</p>
+            <p>Preferances</p>
+        </div>
 
-    <form action="#"  id="jobform" >
-    <div class="parts ">
-        <% if(messages.error_basic){ %>
-            <div class="alert " role="alert">
-                <%= messages.error_basic %>
-            </div>
-            <% } %>
-        <fieldset class="basic">
-            <legend> Basic Details</legend>
-            <div class="formfield">
-                <label for="first_name">First Name: </label>
-        <input type="text" class="required" id="first_name" name="first_name" >
-            </div>
+        <form action="#" id="jobform">
+            <div class="parts ">
+                <% if(messages.error_basic){ %>
+                    <div class="alert " role="alert">
+                        <%= messages.error_basic %>
+                    </div>
+                    <% } %>
+                        <fieldset class="basic">
+                            <legend> Basic Details</legend>
+                            <div class="formfield">
+                                <label for="first_name">First Name: </label>
+                                <input type="text" class="required" id="first_name" name="first_name">
+                            </div>
 
-            <div class="formfield">
-                <label for="last_name">Last Name: </label>
-                <input type="text" class="required" id="last_name" name="last_name" >
-            </div>
+                            <div class="formfield">
+                                <label for="last_name">Last Name: </label>
+                                <input type="text" class="required" id="last_name" name="last_name">
+                            </div>
 
-            <div class="formfield">
-                <label for="basic_designation">Designation</label>
-                <input type="text" class="required" name="basic_designation" id="basic_designation" >
-            </div>
+                            <div class="formfield">
+                                <label for="basic_designation">Designation</label>
+                                <input type="text" class="required" name="basic_designation" id="basic_designation">
+                            </div>
 
-            <div class="formfield">
-                <label for="email">Email: </label>
-                <input type="text"  class="required" name="email" id="email">
-            </div>
+                            <div class="formfield">
+                                <label for="email">Email: </label>
+                                <input type="text" class="required" name="email" id="email">
+                            </div>
 
-            <div class="formfield">
-                <label for="phone_no">Phone No: </label>
-                <input type="text" name="phone" class="required phonevalidate" id="phone_no" >
-            </div>
-
-
-            <div class="formfield">
-                <label for="gender">Gender: </label>
-               <%- combos.genderRadio %>
-            </div>
-
-            <div class="formfield">
-                <label for="dob">Date Of Birth: </label>
-                <input type="text" name="dob" class="required datevalidate" placeholder="yyyy-mm-dd" id="dob" >
-            </div>
-
-            <div class="formfield">
-                <label for="city">City:</label>
-                <input type="text" id="city" name="city" class="required" >
-            </div>
-
-            <div class="formfield">
-                <label for="state">State</label>
-               <%- combos.statesCombo %>
-            </div>
-
-            <div class="formfield">
-                <label for="zipcode">zip Code: </label>
-                <input type="text" name="zipcode" class="required digitvalidate" id="zipcode" >
-            </div>
-
-            <div class="formfield">
-                <label for="address1"> Address 1:</label>
-                <textarea name="address1" id="address1" cols="20" rows="3" class="required"></textarea>
-            </div>
-
-            <div class="formfield">
-                <label for="address1"> Address 2:</label>
-                <textarea name="address2" id="address2" cols="20" rows="3" ></textarea>
-            </div>
-
-            <div class="formfield">
-                <label for="relationship_status">Relationship Status: </label>
-               <%- combos.relationShipCombo %>
-            </div>
+                            <div class="formfield">
+                                <label for="phone_no">Phone No: </label>
+                                <input type="text" name="phone" class="required phonevalidate" id="phone_no">
+                            </div>
 
 
-        </fieldset>
-    </div>
+                            <div class="formfield">
+                                <label for="gender">Gender: </label>
+                                <%- combos.genderRadio %>
+                            </div>
+
+                            <div class="formfield">
+                                <label for="dob">Date Of Birth: </label>
+                                <input type="text" name="dob" class="required datevalidate" placeholder="yyyy-mm-dd"
+                                    id="dob">
+                            </div>
+
+                            <div class="formfield">
+                                <label for="city">City:</label>
+                                <input type="text" id="city" name="city" class="required">
+                            </div>
+
+                            <div class="formfield">
+                                <label for="state">State</label>
+                                <%- combos.statesCombo %>
+                            </div>
+
+                            <div class="formfield">
+                                <label for="zipcode">zip Code: </label>
+                                <input type="text" name="zipcode" class="required digitvalidate" id="zipcode">
+                            </div>
+
+                            <div class="formfield">
+                                <label for="address1"> Address 1:</label>
+                                <textarea name="address1" id="address1" cols="20" rows="3" class="required"></textarea>
+                            </div>
+
+                            <div class="formfield">
+                                <label for="address1"> Address 2:</label>
+                                <textarea name="address2" id="address2" cols="20" rows="3"></textarea>
+                            </div>
+
+                            <div class="formfield">
+                                <label for="relationship_status">Relationship Status: </label>
+                                <%- combos.relationShipCombo %>
+                            </div>
 
 
-    <div class="parts none">
-        <% if(messages.error_education){ %>
-            <div class="alert " role="alert">
-                <%= messages.error_education%>
-            </div>
-            <% } %>
-        <fieldset class="">
-            <legend>Education Details</legend>
-            <div class="formfield">
-                <h3>SSC Result</h3>
-            </div>
-            <div class="ssc education">
-               
-                <div class="formfield">
-                    <label for="ssc_board_name">Name Of Board: </label>
-                    <input type="text" name="board_name[]" class="required" id="ssc_board_name" >
-                </div>
-                <div class="formfield">
-                    <label for="ssc_passing_year">Passing Year: </label>
-                    <input type="text" name="passing_year[]" class="required digitvalidate passingyearlength" id="ssc_passing_year"  placeholder="yyyy">
-                </div>
-                <div class="formfield">
-                    <label for="ssc_percentage">Percentage: </label>
-                    <input type="text" name="percentage[]" class="required digitvalidate" id="ssc_percentage" >
-                </div>
-            </div>
-<hr>
-            <div class="formfield">
-                <h3>HSC Result</h3>
-            </div>
-            <div class="hsc education ">
-               
-                <div class="formfield">
-                    <label for="hsc_board_name">Name Of Board: </label>
-                    <input type="text" name="board_name[]" class="required " id="hsc_board_name" >
-                </div>
-                <div class="formfield">
-                    <label for="hsc_passing_year">Passing Year: </label>
-                    <input type="text" name="passing_year[]" class="required digitvalidate passingyearlength" id="hsc_passing_year"  placeholder="yyyy">
-                </div>
-                <div class="formfield">
-                    <label for="hsc_percentage">Percentage: </label>
-                    <input type="text" name="percentage[]" class="required digitvalidate" id="hsc_percentage" >
-                </div>
+                        </fieldset>
             </div>
 
-<hr>
-            <div class="formfield">
-                <h3>Bachelor Degree</h3>
+
+            <div class="parts none">
+                <% if(messages.error_education){ %>
+                    <div class="alert " role="alert">
+                        <%= messages.error_education%>
+                    </div>
+                    <% } %>
+                        <fieldset class="">
+                            <legend>Education Details</legend>
+                            <div class="formfield">
+                                <h3>SSC Result</h3>
+                            </div>
+                            <div class="ssc education">
+
+                                <div class="formfield">
+                                    <label for="ssc_board_name">Name Of Board: </label>
+                                    <input type="text" name="board_name[]" class="required" id="ssc_board_name">
+                                </div>
+                                <div class="formfield">
+                                    <label for="ssc_passing_year">Passing Year: </label>
+                                    <input type="text" name="passing_year[]"
+                                        class="required digitvalidate passingyearlength" id="ssc_passing_year"
+                                        placeholder="yyyy">
+                                </div>
+                                <div class="formfield">
+                                    <label for="ssc_percentage">Percentage: </label>
+                                    <input type="text" name="percentage[]" class="required digitvalidate"
+                                        id="ssc_percentage">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="formfield">
+                                <h3>HSC Result</h3>
+                            </div>
+                            <div class="hsc education ">
+
+                                <div class="formfield">
+                                    <label for="hsc_board_name">Name Of Board: </label>
+                                    <input type="text" name="board_name[]" class="required " id="hsc_board_name">
+                                </div>
+                                <div class="formfield">
+                                    <label for="hsc_passing_year">Passing Year: </label>
+                                    <input type="text" name="passing_year[]"
+                                        class="required digitvalidate passingyearlength" id="hsc_passing_year"
+                                        placeholder="yyyy">
+                                </div>
+                                <div class="formfield">
+                                    <label for="hsc_percentage">Percentage: </label>
+                                    <input type="text" name="percentage[]" class="required digitvalidate"
+                                        id="hsc_percentage">
+                                </div>
+                            </div>
+
+                            <hr>
+                            <div class="formfield">
+                                <h3>Bachelor Degree</h3>
+                            </div>
+
+                            <div class="bachelor education">
+                                <div class="formfield">
+                                    <label for="bachelor_bachelor_course_Name">Course Name: </label>
+                                    <input type="text" name="bachelor_course_name" class="required"
+                                        id="bachelor_course_Name">
+                                </div>
+                                <div class="formfield">
+                                    <label for="bachelor_university">University: </label>
+                                    <input type="text" name="bachelor_university" class="required passingyearlength"
+                                        id="bachelor_university">
+                                </div>
+                                <div class="formfield">
+                                    <label for="bachelor_passing_year">Passing Year: </label>
+                                    <input type="text" name="bachelor_passing_year" class="required digitvalidate"
+                                        id="bachelor_passing_year" placeholder="yyyy">
+                                </div>
+                                <div class="formfield">
+                                    <label for="bachelor_percentage">CGPA: </label>
+                                    <input type="text" name="bachelor_cgpa" class="required digitvalidate cgpa"
+                                        id="bachelor_percentage">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="formfield">
+                                <h3>Master Degree</h3>
+                            </div>
+                            <div class="master education">
+                                <div class="formfield">
+                                    <label for="master_course_Name">Course Name: </label>
+                                    <input type="text" name="master_course_name" id="master_course_Name">
+                                </div>
+                                <div class="formfield">
+                                    <label for="master_university">University: </label>
+                                    <input type="text" name="master_university" id="master_university">
+                                </div>
+                                <div class="formfield">
+                                    <label for="master_passing_year">Passing Year: </label>
+                                    <input type="text" name="master_passing_year" id="master_passing_year"
+                                        placeholder="yyyy">
+                                </div>
+                                <div class="formfield">
+                                    <label for="master_percentage">CGPA: </label>
+                                    <input type="text" name="master_cgpa" class="cgpa" id="master_percentage">
+                                </div>
+                            </div>
+                        </fieldset>
             </div>
 
-            <div class="bachelor education">
-                <div class="formfield">
-                    <label for="bachelor_bachelor_course_Name">Course Name: </label>
-                    <input type="text" name="bachelor_course_name" class="required" id="bachelor_course_Name" >
-                </div>
-                <div class="formfield">
-                    <label for="bachelor_university">University: </label>
-                    <input type="text" name="bachelor_university" class="required passingyearlength" id="bachelor_university"  >
-                </div>
-                <div class="formfield">
-                    <label for="bachelor_passing_year">Passing Year: </label>
-                    <input type="text" name="bachelor_passing_year" class="required digitvalidate" id="bachelor_passing_year"  placeholder="yyyy">
-                </div>
-                <div class="formfield">
-                    <label for="bachelor_percentage">CGPA: </label>
-                    <input type="text" name="bachelor_cgpa" class="required digitvalidate" id="bachelor_percentage" >
-                </div>
-            </div>
-<hr>
-            <div class="formfield">
-                <h3>Master Degree</h3>
-            </div>
-            <div class="master education">
-                <div class="formfield">
-                    <label for="master_course_Name">Course Name: </label>
-                    <input type="text" name="master_course_name"  id="master_course_Name" >
-                </div>
-                <div class="formfield">
-                    <label for="master_university">University: </label>
-                    <input type="text" name="master_university" id="master_university" >
-                </div>
-                <div class="formfield">
-                    <label for="master_passing_year">Passing Year: </label>
-                    <input type="text" name="master_passing_year" id="master_passing_year"  placeholder="yyyy">
-                </div>
-                <div class="formfield">
-                    <label for="master_percentage">CGPA: </label>
-                    <input type="text" name="master_cgpa" id="master_percentage" >
-                </div>
-            </div>
-        </fieldset>
-    </div>
+
+            <div class="parts none">
+                <% if(messages.error_experience){ %>
+                    <div class="alert " role="alert">
+                        <%= messages.error_experience%>
+                    </div>
+                    <% } %>
+                        <fieldset class="work_experience">
+                            <legend>Work Experience</legend>
+
+                            <button class="add_experience add">+</button>
 
 
-    <div class="parts none">
-        <% if(messages.error_experience){ %>
-            <div class="alert " role="alert">
-                <%= messages.error_experience%>
-            </div>
-            <% } %>
-        <fieldset class="work_experience">
-            <legend>Work Experience</legend>
-           
-                <button class="add_experience add">+</button>
-           
-          
-             <div class="work_experience_detail" >
-                <div class="formfield">
-                    <label for="company_name">Company Name:</label>
-                    <input type="text" name="company_name[]"  id="company_name" >
-                </div>
-                <div class="formfield">
-                    <label for="work_experience_designation">Designation</label>
-                    <input type="text" name="work_experience_designation[]"  id="work_experience_designation" >
-                </div>
-                <div class="formfield">
-                    <label for="from">From: </label>
-                    <input type="text" name="from[]" placeholder="yyyy-mm-dd"  id="from" >
-                </div> 
-                
-                <div class="formfield">
-                    <label for="to">to: </label>
-                    <input type="text" name="to[]" placeholder="yyyy-mm-dd" id="to"  >
-                </div>
-            </div>
-            <hr>
-         
-           
-            
-            
-        </fieldset>
-    </div>
+                            <div class="work_experience_detail">
+                                <div class="formfield">
+                                    <label for="company_name">Company Name:</label>
+                                    <input type="text" name="company_name[]" id="company_name">
+                                </div>
+                                <div class="formfield">
+                                    <label for="work_experience_designation">Designation</label>
+                                    <input type="text" name="work_experience_designation[]"
+                                        id="work_experience_designation">
+                                </div>
+                                <div class="formfield">
+                                    <label for="from">From: </label>
+                                    <input type="text" name="from[]" placeholder="yyyy-mm-dd" id="from">
+                                </div>
+
+                                <div class="formfield">
+                                    <label for="to">to: </label>
+                                    <input type="text" name="to[]" placeholder="yyyy-mm-dd" id="to">
+                                </div>
+                            </div>
+                            <hr>
 
 
-    <div class="language parts none">
-        <% if(messages.error_language){ %>
-            <div class="alert " role="alert">
-                <%= messages.error_language%>
-            </div>
-            <% } %>
-            <span class="alert span"  id="lang_alert"></span>
-        <fieldset class="language_known">
-            <legend>Language Known</legend>
-            <div class="formfield">
-                
-                <input type="checkbox" value="hindi" class="checklang"  name="language[]" id="hindi">
-                <label for="hindi"> <b>  Hindi  </b> </label>
-                <div class="opration">
-                <input type="checkbox" name="hindi_read" value="1" id="hindi_read">Read
-                <input type="checkbox" name="hindi_write"  value="2" id="hindi_write">Write
-                <input type="checkbox" name="hindi_speak" value="3" id="hindi_speak">Speak
-                </div>
-            </div>
-             <div class="formfield">
-                
-                <input type="checkbox" value="english"  class="checklang" name="language[]" id="english">
-                <label for="english"> <b>  English </b> </label>
-                <div class="opration">
-                    <input type="checkbox" name="english_read"  id="english_read" value="1">Read
-                    <input type="checkbox" name="english_write" id="english_write" value="2">Write
-                    <input type="checkbox" name="english_speak"  id="english_speak" value="3">Speak
-                </div>
-               
-            </div>
-
-             <div class="formfield">
-                <input type="checkbox" value="gujarati"   class="checklang" name="language[]" id="gujarati">
-                <label for="gujarati"> <b>  Gujarati  </b> </label>
-                <div class="opration">
-                <input type="checkbox" name="gujarati_read" id="gujarati_read" value="1">Read
-                <input type="checkbox" name="gujarati_write"  id="gujarati_write" value="2">Write
-                <input type="checkbox" name="gujarati_speak" id="gujarati_speak" value="3">Speak
-            </div>
-            </div> 
-        </fieldset>
-    </div> 
-    
-    
-    
-    <div class="technology parts none">
-        <% if(messages.error_technology){ %>
-            <div class="alert " role="alert">
-                <%= messages.error_technology%>
-            </div>
-            <% } %>
-        <fieldset class="technology_known">
-            <legend>Technology Known</legend>
-            <div class="formfield">
-                
-                <input type="checkbox" value="php" name="technology[]"  id="php">
-                <label for="php"> <b>  PHP  </b> </label>
-                <input type="radio" name="php_level"   id="" value="1">Beginer
-                <input type="radio" name="php_level"  id="" value="2">Midiator
-                <input type="radio" name="php_level"  id="" value="3">Expert
-            </div>
-             <div class="formfield">
-                
-                <input type="checkbox" value="mysql"  name="technology[]" id="mysql">
-                <label for="mysql"> <b>  MySql</b> </label>
-                <input type="radio" name="mysql_level" id="" value="1">Beginer
-                <input type="radio" name="mysql_level" id="" value="2">Midiator
-                <input type="radio" name="mysql_level"  id="" value="3">Expert
-            </div> 
-            
-            <div class="formfield">    
-                <input type="checkbox" value="laravel" name="technology[]" id="laravel">
-                <label for="laravel"> <b>  Laravel </b> </label>
-                <input type="radio" name="laravel_level" id="" value="1">Beginer
-                <input type="radio" name="laravel_level"id="" value="2">Midiator
-                <input type="radio" name="laravel_level" id="" value="3">Expert
-            </div> 
-            
-            <div class="formfield">    
-                <input type="checkbox" value="oracle"  name="technology[]" id="oracle">
-                <label for="oracle"> <b>  Oracle</b> </label>
-                <input type="radio" name="oracle_level" id="" value="1">Beginer
-                <input type="radio" name="oracle_level" id="" value="2">Midiator
-                <input type="radio" name="oracle_level" id="" value="3">Expert
-            </div> 
-        </fieldset>
-    </div>
 
 
-    
-    <div class="parts none">
-        <% if(messages.error_referance){ %>
-            <div class="alert " role="alert">
-                <%= messages.error_referance%>
-            </div>
-            <% } %>
-        <fieldset class="referance">
-            <legend>Referance Contact</legend>
-           
-            <button class="add_referance add">+</button>
-
-          
-            <div class="referance_detail">
-                <div class="formfield">
-                    <label for="referance_name">Name : </label>
-                    <input type="text" name="referance_name[]"  id="referance_name" >
-                </div>
-                <div class="formfield">
-                    <label for="referance_number">Mobile Number : </label>
-                    <input type="text" name="referance_number[]" class="phonevalidate" id="referance_number" >
-                </div>
-                <div class="formfield">
-                    <label for="referance_relation">Relation : </label>
-                    <input type="text" name="referance_relation[]"  id="referance_relation" >
-                </div>
-            </div>
-                <hr>
-               
-        </fieldset>
-    </div>
-
-    <div class="parts none">
-        <% if(messages.error_preferance){ %>
-            <div class="alert " role="alert">
-                <%= messages.error_preferance%>
-            </div>
-            <% } %>
-        <fieldset class="preferances">
-            <legend>Preferances</legend>
-            <div class="formfield">
-                <label for="preferance_location">Location: </label>
-                <%- combos.locationCombo  %>
+                        </fieldset>
             </div>
 
-            <div class="formfield">
-                <label for="preferance_notice">Notice Period : </label>
-                <input type="text" name="preferance_notice" placeholder="Enter in Number of month" class="required digitvalidate" id="preferance_notice" >
-            </div> 
-            <div class="formfield">
-                <label for="preferance_expec_ctc">Expected CTC : </label>
-                <input type="text" name="preferance_expec_ctc" class="required" id="preferance_expec_ctc" >
-            </div> 
-            <div class="formfield">
-                <label for="preferance_curr_ctc">Current CTC : </label>
-                <input type="text" name="preferance_curr_ctc" class="required" id="preferance_curr_ctc" >
-            </div> 
-            <div class="formfield">
-                <label for="preferance_deparment">Deparment : </label>
-              <%- combos.departmentCombo  %>
+
+            <div class="language parts none">
+                <% if(messages.error_language){ %>
+                    <div class="alert " role="alert">
+                        <%= messages.error_language%>
+                    </div>
+                    <% } %>
+                        <span class="alert span" id="lang_alert"></span>
+                        <fieldset class="language_known">
+                            <legend>Language Known</legend>
+                            <div class="formfield">
+
+                                <input type="checkbox" value="hindi" class="checklang" name="language[]" id="hindi">
+                                <label for="hindi"> <b> Hindi </b> </label>
+                                <div class="opration">
+                                    <input type="checkbox" class="lang_opration" name="hindi_read" value="1"
+                                        id="hindi_read">Read
+                                    <input type="checkbox" class="lang_opration" name="hindi_write" value="2"
+                                        id="hindi_write">Write
+                                    <input type="checkbox" class="lang_opration" name="hindi_speak" value="3"
+                                        id="hindi_speak">Speak
+                                </div>
+                            </div>
+                            <div class="formfield">
+
+                                <input type="checkbox" value="english" class="checklang" name="language[]" id="english">
+                                <label for="english"> <b> English </b> </label>
+                                <div class="opration">
+                                    <input type="checkbox" class="lang_opration" name="english_read" id="english_read"
+                                        value="1">Read
+                                    <input type="checkbox" class="lang_opration" name="english_write" id="english_write"
+                                        value="2">Write
+                                    <input type="checkbox" class="lang_opration" name="english_speak" id="english_speak"
+                                        value="3">Speak
+                                </div>
+
+                            </div>
+
+                            <div class="formfield">
+                                <input type="checkbox" value="gujarati" class="checklang" name="language[]"
+                                    id="gujarati">
+                                <label for="gujarati"> <b> Gujarati </b> </label>
+                                <div class="opration">
+                                    <input type="checkbox" class="lang_opration" name="gujarati_read" id="gujarati_read"
+                                        value="1">Read
+                                    <input type="checkbox" class="lang_opration" name="gujarati_write"
+                                        id="gujarati_write" value="2">Write
+                                    <input type="checkbox" class="lang_opration" name="gujarati_speak"
+                                        id="gujarati_speak" value="3">Speak
+                                </div>
+                            </div>
+                        </fieldset>
             </div>
-        </fieldset>
-        <div id="submit" >
-            <input type="submit" name="submit" id="submit_button" value="Submit">
+
+
+
+            <div class="technology parts none">
+                <% if(messages.error_technology){ %>
+                    <div class="alert " role="alert">
+                        <%= messages.error_technology%>
+                    </div>
+                    <% } %>
+                        <fieldset class="technology_known">
+                            <legend>Technology Known</legend>
+                            <div class="formfield">
+
+                                <input type="checkbox" value="php" name="technology[]" id="php">
+                                <label for="php"> <b> PHP </b> </label>
+                                <input type="radio" name="php_level" id="" value="1">Beginer
+                                <input type="radio" name="php_level" id="" value="2">Midiator
+                                <input type="radio" name="php_level" id="" value="3">Expert
+                            </div>
+                            <div class="formfield">
+
+                                <input type="checkbox" value="mysql" name="technology[]" id="mysql">
+                                <label for="mysql"> <b> MySql</b> </label>
+                                <input type="radio" name="mysql_level" id="" value="1">Beginer
+                                <input type="radio" name="mysql_level" id="" value="2">Midiator
+                                <input type="radio" name="mysql_level" id="" value="3">Expert
+                            </div>
+
+                            <div class="formfield">
+                                <input type="checkbox" value="laravel" name="technology[]" id="laravel">
+                                <label for="laravel"> <b> Laravel </b> </label>
+                                <input type="radio" name="laravel_level" id="" value="1">Beginer
+                                <input type="radio" name="laravel_level" id="" value="2">Midiator
+                                <input type="radio" name="laravel_level" id="" value="3">Expert
+                            </div>
+
+                            <div class="formfield">
+                                <input type="checkbox" value="oracle" name="technology[]" id="oracle">
+                                <label for="oracle"> <b> Oracle</b> </label>
+                                <input type="radio" name="oracle_level" id="" value="1">Beginer
+                                <input type="radio" name="oracle_level" id="" value="2">Midiator
+                                <input type="radio" name="oracle_level" id="" value="3">Expert
+                            </div>
+                        </fieldset>
+            </div>
+
+
+
+            <div class="parts none">
+                <% if(messages.error_referance){ %>
+                    <div class="alert " role="alert">
+                        <%= messages.error_referance%>
+                    </div>
+                    <% } %>
+                        <fieldset class="referance">
+                            <legend>Referance Contact</legend>
+
+                            <button class="add_referance add">+</button>
+
+
+                            <div class="referance_detail">
+                                <div class="formfield">
+                                    <label for="referance_name">Name : </label>
+                                    <input type="text" name="referance_name[]" id="referance_name">
+                                </div>
+                                <div class="formfield">
+                                    <label for="referance_number">Mobile Number : </label>
+                                    <input type="text" name="referance_number[]" class="phonevalidate"
+                                        id="referance_number">
+                                </div>
+                                <div class="formfield">
+                                    <label for="referance_relation">Relation : </label>
+                                    <input type="text" name="referance_relation[]" id="referance_relation">
+                                </div>
+                            </div>
+                            <hr>
+
+                        </fieldset>
+            </div>
+
+            <div class="parts none">
+                <% if(messages.error_preferance){ %>
+                    <div class="alert " role="alert">
+                        <%= messages.error_preferance%>
+                    </div>
+                    <% } %>
+                        <fieldset class="preferances">
+                            <legend>Preferances</legend>
+                            <div class="formfield">
+                                <label for="preferance_location">Location: </label>
+                                <%- combos.locationCombo %>
+                            </div>
+
+                            <div class="formfield">
+                                <label for="preferance_notice">Notice Period : </label>
+                                <input type="text" name="preferance_notice" placeholder="Enter in Number of month"
+                                    class="required digitvalidate" id="preferance_notice">
+                            </div>
+                            <div class="formfield">
+                                <label for="preferance_expec_ctc">Expected CTC : </label>
+                                <input type="text" name="preferance_expec_ctc" class="required"
+                                    id="preferance_expec_ctc">
+                            </div>
+                            <div class="formfield">
+                                <label for="preferance_curr_ctc">Current CTC : </label>
+                                <input type="text" name="preferance_curr_ctc" class="required" id="preferance_curr_ctc">
+                            </div>
+                            <div class="formfield">
+                                <label for="preferance_deparment">Deparment : </label>
+                                <%- combos.departmentCombo %>
+                            </div>
+                        </fieldset>
+                        <div id="submit">
+                            <input type="submit" name="submit" id="submit_button" value="Submit">
+                        </div>
+            </div>
+        </form>
+        <div class="pre-next-btns">
+            <button class="previous move-btn">Previous</button>
+            <button class="next move-btn">Next</button>
         </div>
     </div>
-</form>
-<div class="pre-next-btns">
-    <button class="previous move-btn">Previous</button>
-    <button class="next move-btn">Next</button>
 </div>
-</div>
-</div>
-

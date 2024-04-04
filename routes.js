@@ -35,7 +35,7 @@ const validate = require("./app/http/middlewares/validation");
 const updateController = require("./app/http/controllers/jobApplication/updateController");
 const getDataController = require("./app/http/controllers/jobApplication/getDataController");
 const cityStateController = require("./app/http/controllers/jobApplication/cityStateCotroller");
-
+const deleteDataController = require("./app/http/controllers/jobApplication/deleteDataController");
 // dynamic grid
 const middleware = require("./app/http/middlewares/dynamicGridMiddleware");
 const dynamic_grid_controller = require("./app/http/controllers/dynamic_grid/dynamic_grid");
@@ -109,6 +109,7 @@ try {
     auth,
     updateController().updateData
   );
+  web.get("/job_application/delete", auth, deleteDataController().deleteData);
   //state city practice
   web.post("/job_application/getstate", auth, cityStateController().getState);
   web.post("/job_application/getcity", auth, cityStateController().getCitys);

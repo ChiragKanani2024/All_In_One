@@ -394,6 +394,23 @@ if (
         isvalidate = digitvalidate(digitvalidateitem);
       }
       if (isvalidate) {
+        let zipcode = document.getElementsByName("zipcode")[0];
+        if (zipcode.nextElementSibling != null) {
+          if (zipcode.nextElementSibling.tagName == "SPAN") {
+            zipcode.nextElementSibling.remove();
+          }
+        }
+        if (zipcode.value.length > 6) {
+          isvalidate = false;
+          let span = document.createElement("span");
+          span.classList.add("alert");
+          span.classList.add("span");
+          span.innerText = "Enter zip code in 6 digit";
+          zipcode.after(span);
+        }
+      }
+
+      if (isvalidate) {
         isvalidate = datevalidate(datevalidateitem);
       }
 
@@ -411,6 +428,44 @@ if (
       if (isvalidate) {
         digitvalidateitems.forEach((item) => {
           isvalidate = digitvalidate(item);
+        });
+      }
+
+      if (isvalidate) {
+        let percentage = document.getElementsByName("percentage[]");
+        percentage.forEach((item) => {
+          if (item.nextElementSibling != null) {
+            if (item.nextElementSibling.tagName == "SPAN") {
+              item.nextElementSibling.remove();
+            }
+          }
+          if (item.value > 100) {
+            isvalidate = false;
+            let span = document.createElement("span");
+            span.classList.add("alert");
+            span.classList.add("span");
+            span.innerText = "percentage not allowed greater than 100";
+            item.after(span);
+          }
+        });
+      }
+
+      if (isvalidate) {
+        let cgpa = document.querySelectorAll(".cgpa");
+        cgpa.forEach((item) => {
+          if (item.nextElementSibling != null) {
+            if (item.nextElementSibling.tagName == "SPAN") {
+              item.nextElementSibling.remove();
+            }
+          }
+          if (item.value > 10) {
+            isvalidate = false;
+            let span = document.createElement("span");
+            span.classList.add("alert");
+            span.classList.add("span");
+            span.innerText = "cgpa not allowed greater than 10";
+            item.after(span);
+          }
         });
       }
       return isvalidate;
@@ -701,6 +756,17 @@ if (
       }
     }
   });
+
+  let lang_opration = document.querySelectorAll(".lang_opration");
+  lang_opration.forEach((item) => {
+    item.addEventListener("click", checkParent);
+  });
+
+  function checkParent(e) {
+    if (e.target.checked) {
+      e.target.parentElement.previousElementSibling.previousElementSibling.checked = true;
+    }
+  }
 }
 
 if (window.location.pathname == "/job_application/updateform2") {
