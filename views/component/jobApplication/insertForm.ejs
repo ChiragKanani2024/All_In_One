@@ -1,82 +1,93 @@
 <div class="container">
-        <form action="<%= data.userid?'/job_application/updatedata':'/job_application/insertdata' %>" method="post" onsubmit="return true" >
-            <input type="hidden" name="userid" value="<%= data.userid?data.userid:'' %>">
+    <form action="<%= data.userid?'/job_application/updatedata':'/job_application/insertdata' %>" method="post"
+        onsubmit="return validate()">
+        <input type="hidden" name="userid" value="<%= data.userid?data.userid:'' %>">
         <div>
             <% if(messages.error_basic){ %>
                 <div class="alert " role="alert">
                     <%= messages.error_basic %>
                 </div>
                 <% } %>
-            <fieldset class="basic">
-                <legend> Basic Details</legend>
-                <div class="formfield">
-                    <label for="first_name">First Name: </label>
-            <input type="text" class="required" id="first_name" name="first_name" value="<%= data.first_name?data.first_name:'' %>">
-                </div>
+                    <fieldset class="basic">
+                        <legend> Basic Details</legend>
+                        <div class="formfield">
+                            <label for="first_name">First Name: </label>
+                            <input type="text" class="required" id="first_name" name="first_name"
+                                value="<%= data.first_name?data.first_name:'' %>">
+                        </div>
 
-                <div class="formfield">
-                    <label for="last_name">Last Name: </label>
-                    <input type="text" class="required" id="last_name" name="last_name" value="<%= data.last_name?data.last_name:'' %>">
-                </div>
+                        <div class="formfield">
+                            <label for="last_name">Last Name: </label>
+                            <input type="text" class="required" id="last_name" name="last_name"
+                                value="<%= data.last_name?data.last_name:'' %>">
+                        </div>
 
-                <div class="formfield">
-                    <label for="basic_designation">Designation</label>
-                    <input type="text" class="required" name="basic_designation" id="basic_designation" value="<%= data.basic_designation?data.basic_designation:'' %>">
-                </div>
+                        <div class="formfield">
+                            <label for="basic_designation">Designation</label>
+                            <input type="text" class="required" name="basic_designation" id="basic_designation"
+                                value="<%= data.basic_designation?data.basic_designation:'' %>">
+                        </div>
 
-                <div class="formfield">
-                    <label for="email">Email: </label>
-                    <input type="text"  class="required" name="email" id="email" value="<%= data.email?data.email:'' %>">
-                </div>
+                        <div class="formfield">
+                            <label for="email">Email: </label>
+                            <input type="text" class="required" name="email" id="email"
+                                value="<%= data.email?data.email:'' %>">
+                        </div>
 
-                <div class="formfield">
-                    <label for="phone_no">Phone No: </label>
-                    <input type="text" name="phone" class="required phonevalidate" id="phone_no" value="<%= data.phone?data.phone:'' %>">
-                </div>
-
-
-                <div class="formfield">
-                    <label for="gender">Gender: </label>
-                   <%- combos.genderRadio %>
-                </div>
-
-                <div class="formfield">
-                    <label for="dob">Date Of Birth: </label>
-                    <input type="text" name="dob" class="required" placeholder="yyyy-mm-dd" id="dob" value="<%= data.dob?data.dob:'' %>">
-                </div>
-
-                <div class="formfield">
-                    <label for="city">City:</label>
-                    <input type="text" id="city" name="city" class="required" value="<%= data.city?data.city:'' %>">
-                </div>
-
-                <div class="formfield">
-                    <label for="state">State</label>
-                   <%- combos.statesCombo %>
-                </div>
-
-                <div class="formfield">
-                    <label for="zipcode">zip Code: </label>
-                    <input type="text" name="zipcode"  class="required digitvalidate" id="zipcode" value="<%= data.zipcode?data.zipcode:'' %>">
-                </div>
-
-                <div class="formfield">
-                    <label for="address1"> Address 1:</label>
-                    <textarea name="address1" id="address1" cols="20" rows="3" class="required"><%= data.address1?data.address1:''  %></textarea>
-                </div>
-
-                <div class="formfield">
-                    <label for="address1"> Address 2:</label>
-                    <textarea name="address2" id="address2" cols="20" rows="3" ><%= data.address2?data.address2:''  %></textarea>
-                </div>
-
-                <div class="formfield">
-                    <label for="relationship_status">Relationship Status: </label>
-                   <%- combos.relationShipCombo %>
-                </div>
+                        <div class="formfield">
+                            <label for="phone_no">Phone No: </label>
+                            <input type="text" name="phone" class="required phonevalidate" id="phone_no"
+                                value="<%= data.phone?data.phone:'' %>">
+                        </div>
 
 
-            </fieldset>
+                        <div class="formfield">
+                            <label for="gender">Gender: </label>
+                            <%- combos.genderRadio %>
+                        </div>
+
+                        <div class="formfield">
+                            <label for="dob">Date Of Birth: </label>
+                            <input type="text" name="dob" class="required" placeholder="yyyy-mm-dd" id="dob"
+                                value="<%= data.dob?data.dob:'' %>">
+                        </div>
+
+                        <div class="formfield">
+                            <label for="city">City:</label>
+                            <input type="text" id="city" name="city" class="required"
+                                value="<%= data.city?data.city:'' %>">
+                        </div>
+
+                        <div class="formfield">
+                            <label for="state">State</label>
+                            <%- combos.statesCombo %>
+                        </div>
+
+                        <div class="formfield">
+                            <label for="zipcode">zip Code: </label>
+                            <input type="text" name="zipcode" class="required digitvalidate" id="zipcode"
+                                value="<%= data.zipcode?data.zipcode:'' %>">
+                        </div>
+
+                        <div class="formfield">
+                            <label for="address1"> Address 1:</label>
+                            <textarea name="address1" id="address1" cols="20" rows="3"
+                                class="required"><%= data.address1?data.address1:''  %></textarea>
+                        </div>
+
+                        <div class="formfield">
+                            <label for="address1"> Address 2:</label>
+                            <textarea name="address2" id="address2" cols="20"
+                                rows="3"><%= data.address2?data.address2:''  %></textarea>
+                        </div>
+
+                        <div class="formfield">
+                            <label for="relationship_status">Relationship Status: </label>
+                            <%- combos.relationShipCombo %>
+                        </div>
+
+
+                    </fieldset>
         </div>
 
 
@@ -86,92 +97,113 @@
                     <%= messages.error_education%>
                 </div>
                 <% } %>
-            <fieldset class="">
-                <legend>Education Details</legend>
-                <div class="formfield">
-                    <h3>SSC Result</h3>
-                </div>
-                <div class="ssc education">
-                   
-                    <div class="formfield">
-                        <label for="ssc_board_name">Name Of Board: </label>
-                        <input type="text" name="board_name[]" class="required" id="ssc_board_name" value="<%= data.board_name?data.board_name[0]:'' %>">
-                    </div>
-                    <div class="formfield">
-                        <label for="ssc_passing_year">Passing Year: </label>
-                        <input type="text" name="passing_year[]" class="required digitvalidate passingyearlength" id="ssc_passing_year" value="<%= data.passing_year?data.passing_year[0]:'' %>" placeholder="yyyy">
-                    </div>
-                    <div class="formfield">
-                        <label for="ssc_percentage">Percentage: </label>
-                        <input type="text" name="percentage[]" class="required digitvalidate" id="ssc_percentage" value="<%= data.percentage?data.percentage[0]:'' %>">
-                    </div>
-                </div>
-<hr>
-                <div class="formfield">
-                    <h3>HSC Result</h3>
-                </div>
-                <div class="hsc education ">
-                   
-                    <div class="formfield">
-                        <label for="hsc_board_name">Name Of Board: </label>
-                        <input type="text" name="board_name[]" class="required " id="hsc_board_name" value="<%= data.board_name?data.board_name[1]:'' %>">
-                    </div>
-                    <div class="formfield">
-                        <label for="hsc_passing_year">Passing Year: </label>
-                        <input type="text" name="passing_year[]" class="required digitvalidate passingyearlength" id="hsc_passing_year" value="<%= data.passing_year?data.passing_year[1]:'' %>" placeholder="yyyy">
-                    </div>
-                    <div class="formfield">
-                        <label for="hsc_percentage">Percentage: </label>
-                        <input type="text" name="percentage[]" class="required digitvalidate" id="hsc_percentage" value="<%= data.percentage?data.percentage[1]:'' %>">
-                    </div>
-                </div>
+                    <fieldset class="">
+                        <legend>Education Details</legend>
+                        <div class="formfield">
+                            <h3>SSC Result</h3>
+                        </div>
+                        <div class="ssc education">
 
-<hr>
-                <div class="formfield">
-                    <h3>Bachelor Degree</h3>
-                </div>
+                            <div class="formfield">
+                                <label for="ssc_board_name">Name Of Board: </label>
+                                <input type="text" name="board_name[]" class="required" id="ssc_board_name"
+                                    value="<%= data.board_name?data.board_name[0]:'' %>">
+                            </div>
+                            <div class="formfield">
+                                <label for="ssc_passing_year">Passing Year: </label>
+                                <input type="text" name="passing_year[]"
+                                    class="required digitvalidate passingyearlength" id="ssc_passing_year"
+                                    value="<%= data.passing_year?data.passing_year[0]:'' %>" placeholder="yyyy">
+                            </div>
+                            <div class="formfield">
+                                <label for="ssc_percentage">Percentage: </label>
+                                <input type="text" name="percentage[]" class="required digitvalidate"
+                                    id="ssc_percentage" value="<%= data.percentage?data.percentage[0]:'' %>">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="formfield">
+                            <h3>HSC Result</h3>
+                        </div>
+                        <div class="hsc education ">
 
-                <div class="bachelor education">
-                    <div class="formfield">
-                        <label for="bachelor_bachelor_course_Name">Course Name: </label>
-                        <input type="text" name="bachelor_course_name" class="required" id="bachelor_course_Name" value="<%= data.bachelor_course_name?data.bachelor_course_name:'' %>">
-                    </div>
-                    <div class="formfield">
-                        <label for="bachelor_university">University: </label>
-                        <input type="text" name="bachelor_university" class="required passingyearlength" id="bachelor_university" value="<%= data.bachelor_university?data.bachelor_university:'' %>" >
-                    </div>
-                    <div class="formfield">
-                        <label for="bachelor_passing_year">Passing Year: </label>
-                        <input type="text" name="bachelor_passing_year" class="required digitvalidate" id="bachelor_passing_year" value="<%= data.bachelor_passing_year?data.bachelor_passing_year:'' %>" placeholder="yyyy">
-                    </div>
-                    <div class="formfield">
-                        <label for="bachelor_percentage">CGPA: </label>
-                        <input type="text" name="bachelor_cgpa" class="required digitvalidate" id="bachelor_percentage" value="<%= data.bachelor_cgpa?data.bachelor_cgpa:'' %>">
-                    </div>
-                </div>
-<hr>
-                <div class="formfield">
-                    <h3>Master Degree</h3>
-                </div>
-                <div class="master education">
-                    <div class="formfield">
-                        <label for="master_course_Name">Course Name: </label>
-                        <input type="text" name="master_course_name"  id="master_course_Name" value="<%= data.master_course_name?data.master_course_name:'' %>">
-                    </div>
-                    <div class="formfield">
-                        <label for="master_university">University: </label>
-                        <input type="text" name="master_university" id="master_university" value="<%= data.master_university?data.master_university:'' %>">
-                    </div>
-                    <div class="formfield">
-                        <label for="master_passing_year">Passing Year: </label>
-                        <input type="text" name="master_passing_year" id="master_passing_year" value="<%= data.master_passing_year?data.master_passing_year:'' %>" placeholder="yyyy">
-                    </div>
-                    <div class="formfield">
-                        <label for="master_percentage">CGPA: </label>
-                        <input type="text" name="master_cgpa" id="master_percentage" value="<%= data.master_cgpa?data.master_cgpa:'' %>">
-                    </div>
-                </div>
-            </fieldset>
+                            <div class="formfield">
+                                <label for="hsc_board_name">Name Of Board: </label>
+                                <input type="text" name="board_name[]" class="required " id="hsc_board_name"
+                                    value="<%= data.board_name?data.board_name[1]:'' %>">
+                            </div>
+                            <div class="formfield">
+                                <label for="hsc_passing_year">Passing Year: </label>
+                                <input type="text" name="passing_year[]"
+                                    class="required digitvalidate passingyearlength" id="hsc_passing_year"
+                                    value="<%= data.passing_year?data.passing_year[1]:'' %>" placeholder="yyyy">
+                            </div>
+                            <div class="formfield">
+                                <label for="hsc_percentage">Percentage: </label>
+                                <input type="text" name="percentage[]" class="required digitvalidate"
+                                    id="hsc_percentage" value="<%= data.percentage?data.percentage[1]:'' %>">
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="formfield">
+                            <h3>Bachelor Degree</h3>
+                        </div>
+
+                        <div class="bachelor education">
+                            <div class="formfield">
+                                <label for="bachelor_bachelor_course_Name">Course Name: </label>
+                                <input type="text" name="bachelor_course_name" class="required"
+                                    id="bachelor_course_Name"
+                                    value="<%= data.bachelor_course_name?data.bachelor_course_name:'' %>">
+                            </div>
+                            <div class="formfield">
+                                <label for="bachelor_university">University: </label>
+                                <input type="text" name="bachelor_university" class="required passingyearlength"
+                                    id="bachelor_university"
+                                    value="<%= data.bachelor_university?data.bachelor_university:'' %>">
+                            </div>
+                            <div class="formfield">
+                                <label for="bachelor_passing_year">Passing Year: </label>
+                                <input type="text" name="bachelor_passing_year" class="required digitvalidate"
+                                    id="bachelor_passing_year"
+                                    value="<%= data.bachelor_passing_year?data.bachelor_passing_year:'' %>"
+                                    placeholder="yyyy">
+                            </div>
+                            <div class="formfield">
+                                <label for="bachelor_percentage">CGPA: </label>
+                                <input type="text" name="bachelor_cgpa" class="required digitvalidate"
+                                    id="bachelor_percentage" value="<%= data.bachelor_cgpa?data.bachelor_cgpa:'' %>">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="formfield">
+                            <h3>Master Degree</h3>
+                        </div>
+                        <div class="master education">
+                            <div class="formfield">
+                                <label for="master_course_Name">Course Name: </label>
+                                <input type="text" name="master_course_name" id="master_course_Name"
+                                    value="<%= data.master_course_name?data.master_course_name:'' %>">
+                            </div>
+                            <div class="formfield">
+                                <label for="master_university">University: </label>
+                                <input type="text" name="master_university" id="master_university"
+                                    value="<%= data.master_university?data.master_university:'' %>">
+                            </div>
+                            <div class="formfield">
+                                <label for="master_passing_year">Passing Year: </label>
+                                <input type="text" name="master_passing_year" id="master_passing_year"
+                                    value="<%= data.master_passing_year?data.master_passing_year:'' %>"
+                                    placeholder="yyyy">
+                            </div>
+                            <div class="formfield">
+                                <label for="master_percentage">CGPA: </label>
+                                <input type="text" name="master_cgpa" id="master_percentage"
+                                    value="<%= data.master_cgpa?data.master_cgpa:'' %>">
+                            </div>
+                        </div>
+                    </fieldset>
         </div>
 
 
@@ -181,38 +213,45 @@
                     <%= messages.error_experience%>
                 </div>
                 <% } %>
-            <fieldset class="work_experience">
-                <legend>Work Experience</legend>
-                <% if (!data.userid) { %>
-                    <button class="add_experience add">+</button>
-                <% } %>
-               <% for (let i = 0; i < data.from.length; i++) { %>
-                 <div class="work_experience_detail" >
-                    <input type="hidden" name="work_id[]" value="<%= data.work_id?data.work_id[i]:'' %>">
-                    <div class="formfield">
-                        <label for="company_name">Company Name:</label>
-                        <input type="text" name="company_name[]"  id="company_name" value="<%= data.company_name?data.company_name[i]:'' %>">
-                    </div>
-                    <div class="formfield">
-                        <label for="work_experience_designation">Designation</label>
-                        <input type="text" name="work_experience_designation[]"  id="work_experience_designation" value="<%= data.work_experience_designation?data.work_experience_designation[i]:'' %>">
-                    </div>
-                    <div class="formfield">
-                        <label for="from">From: </label>
-                        <input type="text" name="from[]" placeholder="yyyy-mm-dd"  id="from" value="<%= data.from?data.from[i]:'' %>">
-                    </div> 
-                    
-                    <div class="formfield">
-                        <label for="to">to: </label>
-                        <input type="text" name="to[]" placeholder="yyyy-mm-dd" id="to"  value="<%= data.to?data.to[i]:'' %>">
-                    </div>
-                </div>
-                <hr>
-             <%  } %>
-               
-                
-                
-            </fieldset>
+                    <fieldset class="work_experience">
+                        <legend>Work Experience</legend>
+                        <% if (!data.userid) { %>
+                            <button class="add_experience add">+</button>
+                            <% } %>
+                                <% for (let i=0; i < data.from.length; i++) { %>
+                                    <div class="work_experience_detail">
+                                        <input type="hidden" name="work_id[]"
+                                            value="<%= data.work_id?data.work_id[i]:'' %>">
+                                        <div class="formfield">
+                                            <label for="company_name">Company Name:</label>
+                                            <input type="text" name="company_name[]" id="company_name"
+                                                value="<%= data.company_name?data.company_name[i]:'' %>">
+                                        </div>
+                                        <div class="formfield">
+                                            <label for="work_experience_designation">Designation</label>
+                                            <input type="text" name="work_experience_designation[]"
+                                                id="work_experience_designation"
+                                                value="<%= data.work_experience_designation?data.work_experience_designation[i]:'' %>">
+                                        </div>
+                                        <div class="formfield">
+                                            <label for="from">From: </label>
+                                            <input type="text" name="from[]" placeholder="yyyy-mm-dd" id="from"
+                                                value="<%= data.from?data.from[i]:'' %>">
+                                        </div>
+
+                                        <div class="formfield">
+                                            <label for="to">to: </label>
+                                            <input type="text" name="to[]" placeholder="yyyy-mm-dd" id="to"
+                                                value="<%= data.to?data.to[i]:'' %>">
+                                        </div>
+
+                                    </div>
+                                    <hr>
+                                    <% } %>
+
+
+
+                    </fieldset>
         </div>
 
 
@@ -222,121 +261,159 @@
                     <%= messages.error_language%>
                 </div>
                 <% } %>
-                <span class="alert span"  id="lang_alert"></span>
-            <fieldset class="language_known">
-                <legend>Language Known</legend>
-                <div class="formfield">
-                    
-                    <input type="checkbox" value="hindi" class="checklang" <%= data.language?data.language.includes("hindi")?'checked':'':'' %> name="language[]" id="hindi">
-                    <label for="hindi"> <b>  Hindi  </b> </label>
-                    <div class="opration">
-                    <input type="checkbox" name="hindi_read" <%= data.hindi_read?'checked':'' %> value="1" id="hindi_read">Read
-                    <input type="checkbox" name="hindi_write" <%= data.hindi_write?'checked':'' %> value="2" id="hindi_write">Write
-                    <input type="checkbox" name="hindi_speak" <%= data.hindi_speak?'checked':'' %> value="3" id="hindi_speak">Speak
-                    </div>
-                </div>
-                 <div class="formfield">
-                    
-                    <input type="checkbox" value="english" <%= data.language?data.language.includes("english")?'checked':'':'' %>  class="checklang" name="language[]" id="english">
-                    <label for="english"> <b>  English </b> </label>
-                    <div class="opration">
-                        <input type="checkbox" name="english_read" <%= data.english_read?'checked':'' %> id="english_read" value="1">Read
-                        <input type="checkbox" name="english_write" <%= data.english_write?'checked':'' %> id="english_write" value="2">Write
-                        <input type="checkbox" name="english_speak" <%= data.english_speak?'checked':'' %> id="english_speak" value="3">Speak
-                    </div>
-                   
-                </div>
+                    <span class="alert span" id="lang_alert"></span>
+                    <fieldset class="language_known">
+                        <legend>Language Known</legend>
+                        <div class="formfield">
 
-                 <div class="formfield">
-                    <input type="checkbox" value="gujarati" <%= data.language?data.language.includes("gujarati")?'checked':'':'' %>  class="checklang" name="language[]" id="gujarati">
-                    <label for="gujarati"> <b>  Gujarati  </b> </label>
-                    <div class="opration">
-                    <input type="checkbox" name="gujarati_read" <%= data.gujarati_read?'checked':'' %> id="gujarati_read" value="1">Read
-                    <input type="checkbox" name="gujarati_write" <%= data.gujarati_write?'checked':'' %> id="gujarati_write" value="2">Write
-                    <input type="checkbox" name="gujarati_speak" <%= data.gujarati_speak?'checked':'' %> id="gujarati_speak" value="3">Speak
-                </div>
-                </div> 
-            </fieldset>
-        </div> 
-        
-        
-        
+                            <input type="checkbox" value="hindi" class="checklang"
+                                <%=data.language?data.language.includes("hindi")?'checked':'':'' %> name="language[]"
+                            id="hindi">
+                            <label for="hindi"> <b> Hindi </b> </label>
+                            <div class="opration">
+                                <input type="checkbox" name="hindi_read" <%=data.hindi_read?'checked':'' %> value="1"
+                                id="hindi_read">Read
+                                <input type="checkbox" name="hindi_write" <%=data.hindi_write?'checked':'' %> value="2"
+                                id="hindi_write">Write
+                                <input type="checkbox" name="hindi_speak" <%=data.hindi_speak?'checked':'' %> value="3"
+                                id="hindi_speak">Speak
+                            </div>
+                        </div>
+                        <div class="formfield">
+
+                            <input type="checkbox" value="english"
+                                <%=data.language?data.language.includes("english")?'checked':'':'' %> class="checklang"
+                            name="language[]" id="english">
+                            <label for="english"> <b> English </b> </label>
+                            <div class="opration">
+                                <input type="checkbox" name="english_read" <%=data.english_read?'checked':'' %>
+                                id="english_read" value="1">Read
+                                <input type="checkbox" name="english_write" <%=data.english_write?'checked':'' %>
+                                id="english_write" value="2">Write
+                                <input type="checkbox" name="english_speak" <%=data.english_speak?'checked':'' %>
+                                id="english_speak" value="3">Speak
+                            </div>
+
+                        </div>
+
+                        <div class="formfield">
+                            <input type="checkbox" value="gujarati"
+                                <%=data.language?data.language.includes("gujarati")?'checked':'':'' %> class="checklang"
+                            name="language[]" id="gujarati">
+                            <label for="gujarati"> <b> Gujarati </b> </label>
+                            <div class="opration">
+                                <input type="checkbox" name="gujarati_read" <%=data.gujarati_read?'checked':'' %>
+                                id="gujarati_read" value="1">Read
+                                <input type="checkbox" name="gujarati_write" <%=data.gujarati_write?'checked':'' %>
+                                id="gujarati_write" value="2">Write
+                                <input type="checkbox" name="gujarati_speak" <%=data.gujarati_speak?'checked':'' %>
+                                id="gujarati_speak" value="3">Speak
+                            </div>
+                        </div>
+                    </fieldset>
+        </div>
+
+
+
         <div class="technology">
             <% if(messages.error_technology){ %>
                 <div class="alert " role="alert">
                     <%= messages.error_technology%>
                 </div>
                 <% } %>
-            <fieldset class="technology_known">
-                <legend>Technology Known</legend>
-                <div class="formfield">
-                    
-                    <input type="checkbox" value="php" name="technology[]" <%= data.technology?data.technology.includes("php")?'checked':'':'' %> id="php">
-                    <label for="php"> <b>  PHP  </b> </label>
-                    <input type="radio" name="php_level"  <%= data.php_level?data.php_level=='1'?'checked':'':'' %> id="" value="1">Beginer
-                    <input type="radio" name="php_level" <%= data.php_level?data.php_level=='2'?'checked':'':'' %> id="" value="2">Midiator
-                    <input type="radio" name="php_level" <%= data.php_level?data.php_level=='3'?'checked':'':'' %> id="" value="3">Expert
-                </div>
-                 <div class="formfield">
-                    
-                    <input type="checkbox" value="mysql" <%= data.technology?data.technology.includes("mysql")?'checked':'':'' %> name="technology[]" id="mysql">
-                    <label for="mysql"> <b>  MySql</b> </label>
-                    <input type="radio" name="mysql_level" <%= data.mysql_level?data.mysql_level=='1'?'checked':'':'' %> id="" value="1">Beginer
-                    <input type="radio" name="mysql_level" <%= data.mysql_level?data.mysql_level=='2'?'checked':'':'' %> id="" value="2">Midiator
-                    <input type="radio" name="mysql_level" <%= data.mysql_level?data.mysql_level=='3'?'checked':'':'' %> id="" value="3">Expert
-                </div> 
-                
-                <div class="formfield">    
-                    <input type="checkbox" value="laravel" <%= data.technology?data.technology.includes("laravel")?'checked':'':'' %> name="technology[]" id="laravel">
-                    <label for="laravel"> <b>  Laravel </b> </label>
-                    <input type="radio" name="laravel_level" <%= data.laravel_level?data.laravel_level=='1'?'checked':'':'' %> id="" value="1">Beginer
-                    <input type="radio" name="laravel_level" <%= data.laravel_level?data.laravel_level=='2'?'checked':'':'' %> id="" value="2">Midiator
-                    <input type="radio" name="laravel_level" <%= data.laravel_level?data.laravel_level=='3'?'checked':'':'' %> id="" value="3">Expert
-                </div> 
-                
-                <div class="formfield">    
-                    <input type="checkbox" value="oracle" <%= data.technology?data.technology.includes("oracle")?'checked':'':'' %> name="technology[]" id="oracle">
-                    <label for="oracle"> <b>  Oracle</b> </label>
-                    <input type="radio" name="oracle_level" <%= data.oracle_level?data.oracle_level=='1'?'checked':'':'' %> id="" value="1">Beginer
-                    <input type="radio" name="oracle_level" <%= data.oracle_level?data.oracle_level=='2'?'checked':'':'' %> id="" value="2">Midiator
-                    <input type="radio" name="oracle_level" <%= data.oracle_level?data.oracle_level=='3'?'checked':'':'' %> id="" value="3">Expert
-                </div> 
-            </fieldset>
+                    <fieldset class="technology_known">
+                        <legend>Technology Known</legend>
+                        <div class="formfield">
+
+                            <input type="checkbox" value="php" name="technology[]"
+                                <%=data.technology?data.technology.includes("php")?'checked':'':'' %> id="php">
+                            <label for="php"> <b> PHP </b> </label>
+                            <input type="radio" name="php_level" <%=data.php_level?data.php_level=='1' ?'checked':'':''
+                                %> id="" value="1">Beginer
+                            <input type="radio" name="php_level" <%=data.php_level?data.php_level=='2' ?'checked':'':''
+                                %> id="" value="2">Midiator
+                            <input type="radio" name="php_level" <%=data.php_level?data.php_level=='3' ?'checked':'':''
+                                %> id="" value="3">Expert
+                        </div>
+                        <div class="formfield">
+
+                            <input type="checkbox" value="mysql"
+                                <%=data.technology?data.technology.includes("mysql")?'checked':'':'' %>
+                            name="technology[]" id="mysql">
+                            <label for="mysql"> <b> MySql</b> </label>
+                            <input type="radio" name="mysql_level" <%=data.mysql_level?data.mysql_level=='1'
+                                ?'checked':'':'' %> id="" value="1">Beginer
+                            <input type="radio" name="mysql_level" <%=data.mysql_level?data.mysql_level=='2'
+                                ?'checked':'':'' %> id="" value="2">Midiator
+                            <input type="radio" name="mysql_level" <%=data.mysql_level?data.mysql_level=='3'
+                                ?'checked':'':'' %> id="" value="3">Expert
+                        </div>
+
+                        <div class="formfield">
+                            <input type="checkbox" value="laravel"
+                                <%=data.technology?data.technology.includes("laravel")?'checked':'':'' %>
+                            name="technology[]" id="laravel">
+                            <label for="laravel"> <b> Laravel </b> </label>
+                            <input type="radio" name="laravel_level" <%=data.laravel_level?data.laravel_level=='1'
+                                ?'checked':'':'' %> id="" value="1">Beginer
+                            <input type="radio" name="laravel_level" <%=data.laravel_level?data.laravel_level=='2'
+                                ?'checked':'':'' %> id="" value="2">Midiator
+                            <input type="radio" name="laravel_level" <%=data.laravel_level?data.laravel_level=='3'
+                                ?'checked':'':'' %> id="" value="3">Expert
+                        </div>
+
+                        <div class="formfield">
+                            <input type="checkbox" value="oracle"
+                                <%=data.technology?data.technology.includes("oracle")?'checked':'':'' %>
+                            name="technology[]" id="oracle">
+                            <label for="oracle"> <b> Oracle</b> </label>
+                            <input type="radio" name="oracle_level" <%=data.oracle_level?data.oracle_level=='1'
+                                ?'checked':'':'' %> id="" value="1">Beginer
+                            <input type="radio" name="oracle_level" <%=data.oracle_level?data.oracle_level=='2'
+                                ?'checked':'':'' %> id="" value="2">Midiator
+                            <input type="radio" name="oracle_level" <%=data.oracle_level?data.oracle_level=='3'
+                                ?'checked':'':'' %> id="" value="3">Expert
+                        </div>
+                    </fieldset>
         </div>
 
 
-        
+
         <div>
             <% if(messages.error_referance){ %>
                 <div class="alert " role="alert">
                     <%= messages.error_referance%>
                 </div>
                 <% } %>
-            <fieldset class="referance">
-                <legend>Referance Contact</legend>
-                <% if (!data.userid) { %>
-                <button class="add_referance add">+</button>
-                <% } %>
-                <% for (let i = 0; i < data.referance_name.length; i++) { %>
-                <div class="referance_detail">
-                    <input type="hidden" name="ref_id[]" value="<%= data.ref_id?data.ref_id[i]:'' %>">
-                    <div class="formfield">
-                        <label for="referance_name">Name : </label>
-                        <input type="text" name="referance_name[]"  id="referance_name" value="<%= data.referance_name?data.referance_name[i]:'' %>">
-                    </div>
-                    <div class="formfield">
-                        <label for="referance_number">Mobile Number : </label>
-                        <input type="text" name="referance_number[]"  id="referance_number" value="<%= data.referance_number?data.referance_number[i]:'' %>">
-                    </div>
-                    <div class="formfield">
-                        <label for="referance_relation">Relation : </label>
-                        <input type="text" name="referance_relation[]"  id="referance_relation" value="<%= data.referance_relation?data.referance_relation[i]:'' %>">
-                    </div>
-                </div>
-                    <hr>
-                    <% } %>
-                   
-            </fieldset>
+                    <fieldset class="referance">
+                        <legend>Referance Contact</legend>
+                        <% if (!data.userid) { %>
+                            <button class="add_referance add">+</button>
+                            <% } %>
+                                <% for (let i=0; i < data.referance_name.length; i++) { %>
+                                    <div class="referance_detail">
+                                        <input type="hidden" name="ref_id[]"
+                                            value="<%= data.ref_id?data.ref_id[i]:'' %>">
+                                        <div class="formfield">
+                                            <label for="referance_name">Name : </label>
+                                            <input type="text" name="referance_name[]" id="referance_name"
+                                                value="<%= data.referance_name?data.referance_name[i]:'' %>">
+                                        </div>
+                                        <div class="formfield">
+                                            <label for="referance_number">Mobile Number : </label>
+                                            <input type="text" name="referance_number[]" id="referance_number"
+                                                value="<%= data.referance_number?data.referance_number[i]:'' %>">
+                                        </div>
+                                        <div class="formfield">
+                                            <label for="referance_relation">Relation : </label>
+                                            <input type="text" name="referance_relation[]" id="referance_relation"
+                                                value="<%= data.referance_relation?data.referance_relation[i]:'' %>">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <% } %>
+
+                    </fieldset>
         </div>
 
         <div>
@@ -345,33 +422,37 @@
                     <%= messages.error_preferance%>
                 </div>
                 <% } %>
-            <fieldset class="preferances">
-                <legend>Preferances</legend>
-                <div class="formfield">
-                    <label for="preferance_location">Location: </label>
-                    <%- combos.locationCombo  %>
-                </div>
+                    <fieldset class="preferances">
+                        <legend>Preferances</legend>
+                        <div class="formfield">
+                            <label for="preferance_location">Location: </label>
+                            <%- combos.locationCombo %>
+                        </div>
 
-                <div class="formfield">
-                    <label for="preferance_notice">Notice Period : </label>
-                    <input type="text" name="preferance_notice" placeholder="Enter in Number of month" class="required digitvalidate" id="preferance_notice" value="<%= data.preferance_notice?data.preferance_notice:'' %>">
-                </div> 
-                <div class="formfield">
-                    <label for="preferance_expec_ctc">Expected CTC : </label>
-                    <input type="text" name="preferance_expec_ctc" class="required" id="preferance_expec_ctc" value="<%= data.preferance_expec_ctc?data.preferance_expec_ctc:'' %>">
-                </div> 
-                <div class="formfield">
-                    <label for="preferance_curr_ctc">Current CTC : </label>
-                    <input type="text" name="preferance_curr_ctc" class="required" id="preferance_curr_ctc" value="<%= data.preferance_curr_ctc?data.preferance_curr_ctc:'' %>">
-                </div> 
-                <div class="formfield">
-                    <label for="preferance_deparment">Deparment : </label>
-                  <%- combos.departmentCombo  %>
-                </div>
-            </fieldset>
+                        <div class="formfield">
+                            <label for="preferance_notice">Notice Period : </label>
+                            <input type="text" name="preferance_notice" placeholder="Enter in Number of month"
+                                class="required digitvalidate" id="preferance_notice"
+                                value="<%= data.preferance_notice?data.preferance_notice:'' %>">
+                        </div>
+                        <div class="formfield">
+                            <label for="preferance_expec_ctc">Expected CTC : </label>
+                            <input type="text" name="preferance_expec_ctc" class="required" id="preferance_expec_ctc"
+                                value="<%= data.preferance_expec_ctc?data.preferance_expec_ctc:'' %>">
+                        </div>
+                        <div class="formfield">
+                            <label for="preferance_curr_ctc">Current CTC : </label>
+                            <input type="text" name="preferance_curr_ctc" class="required" id="preferance_curr_ctc"
+                                value="<%= data.preferance_curr_ctc?data.preferance_curr_ctc:'' %>">
+                        </div>
+                        <div class="formfield">
+                            <label for="preferance_deparment">Deparment : </label>
+                            <%- combos.departmentCombo %>
+                        </div>
+                    </fieldset>
         </div>
 
-        
+
         <!-- <div>
             <fieldset>
                 <legend>Attached Your Resume Here</legend>

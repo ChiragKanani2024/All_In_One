@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        tr,td{
+        tr,
+        td {
             width: 5rem;
             height: 3rem;
             border: 2px solid black;
             border-radius: 10px;
-           
+
         }
-        #table1{
+
+        #table1 {
             border: 2px solid black;
-         display: flex;
-         justify-content: center;
-         display: none;
-         max-height: 30rem;
-         max-width: 30rem;
-         
+            display: flex;
+            justify-content: center;
+            display: none;
+            max-height: 30rem;
+            max-width: 30rem;
+
         }
-        td{
+
+        td {
             background-color: rgb(59, 187, 209);
 
         }
 
-        #opt5{
+        #opt5 {
             opacity: 50%;
         }
-        #opt1{
+
+        #opt1 {
             opacity: 100%;
         }
-        header{
+
+        header {
             text-align: center;
         }
-        .container{
+
+        .container {
             background-color: rgb(111, 153, 160);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        .btn{
+
+        .btn {
             width: 6rem;
             height: 2rem;
             background-color: rgb(0, 0, 0);
@@ -53,19 +61,22 @@
         }
     </style>
 </head>
+
 <body>
     <header>
-        <h1> Chirag Kanani Emp(24DEV036    )</h1>
+        <h1> Chirag Kanani Emp(24DEV036 )</h1>
     </header>
     <div class="container">
         <h2 id="score">0</h2>
         <h3>Time :<span id="time">30</span> </h3>
-        <header id="head"><h1>Click Start Button to start a game</h1></header>
+        <header id="head">
+            <h1>Click Start Button to start a game</h1>
+        </header>
         <table id="table1" colspacing="0" colpadding="0">
             <tr>
                 <td> </td>
                 <td id="opt5"> </td>
-            </tr> 
+            </tr>
             <tr>
                 <td> </td>
                 <td> </td>
@@ -73,111 +84,110 @@
         </table>
         <button class="btn">Start Game</button>
     </div>
-    <script >
+    <script>
         let table1 = document.querySelector("#table1");
         let tds = document.querySelectorAll("td");
         let sc = document.querySelector("#score")
         let start = document.querySelector(".btn")
         let score = 0;
 
-tds.forEach(element => {
-    element.addEventListener("click",game)
-});
+        tds.forEach(element => {
+            element.addEventListener("click", game)
+        });
 
- function  getNewRandomColor()
- {   
-    let tdcount1 =document.querySelectorAll("td").length
-    var num = Number( Math.floor((Math.random() * tdcount1) ))
-    // console.log(num)
+        function getNewRandomColor() {
+            let tdcount1 = document.querySelectorAll("td").length
+            var num = Number(Math.floor((Math.random() * tdcount1)))
+            // console.log(num)
 
-    let a = Math.floor((Math.random() * 255) + 1);
-    let b = Math.floor((Math.random() * 255) + 1);
-    let c = Math.floor((Math.random() * 255) + 1);
-//    console.log(rand)
-let tds1 = table1.querySelectorAll("td");
-    for (const i of tds1) {
-        // console.log(i)
-        i.style.backgroundColor = `rgb(${a},${b},${c})`;
-        i.setAttribute("id","opt1")
-    }
-    tds1[num].setAttribute("id","opt5")
-    // console.log(tds1[num]) 
-}
-
-
-
-
-
-
-
-
-function tableadd(){
-
-    if(table1.offsetWidth<480){
-        for (const tr of table1.firstElementChild.children) {
-            let td = document.createElement("td")
-            td.addEventListener("click",game)
-            tr.append(td)
+            let a = Math.floor((Math.random() * 255) + 1);
+            let b = Math.floor((Math.random() * 255) + 1);
+            let c = Math.floor((Math.random() * 255) + 1);
+            //    console.log(rand)
+            let tds1 = table1.querySelectorAll("td");
+            for (const i of tds1) {
+                // console.log(i)
+                i.style.backgroundColor = `rgb(${a},${b},${c})`;
+                i.setAttribute("id", "opt1")
             }
-          
-            let tr = document.createElement("tr");
-            let tdcount = table1.firstElementChild.firstElementChild.childElementCount;
-            for (let i = 0; i < tdcount; i++) {
-                let td = document.createElement("td")
-                td.addEventListener("click",game)
-                
-                tr.append(td)
+            tds1[num].setAttribute("id", "opt5")
+            // console.log(tds1[num]) 
+        }
+
+
+
+
+
+
+
+
+        function tableadd() {
+
+            if (table1.offsetWidth < 480) {
+                for (const tr of table1.firstElementChild.children) {
+                    let td = document.createElement("td")
+                    td.addEventListener("click", game)
+                    tr.append(td)
+                }
+
+                let tr = document.createElement("tr");
+                let tdcount = table1.firstElementChild.firstElementChild.childElementCount;
+                for (let i = 0; i < tdcount; i++) {
+                    let td = document.createElement("td")
+                    td.addEventListener("click", game)
+
+                    tr.append(td)
+                }
+                table1.firstElementChild.append(tr)
+                getNewRandomColor()
+            } else {
+                getNewRandomColor()
+
             }
-            table1.firstElementChild.append(tr)
-             getNewRandomColor()
-    }else{
-             getNewRandomColor()
-
-    }
-
-   
-        
-}
 
 
-function game(evt){
 
-            
-           let id = evt.target.getAttribute("id");
-           if(id == "opt5"){
-            score++;
-            // console.log(score)
-            sc.innerText = `Score : ${score}`;
-
-          tableadd()
-           }else{
-        //   tableadd()
-        //   console.log(score)
-        if(score != 0){
-            score--;
-            sc.innerText = `Score : ${score}`;
         }
-           }
 
-}
 
-start.addEventListener("click",()=>{
-    let time = 30
-    document.querySelector("#head").style.display = "none"
-    table1.style.display = "block"
-    const set = setInterval(()=>{
-        if(time>=0){
-        document.querySelector("#time").innerText = time
-        time--;
-        }else{
-            alert(`Your time over , your Score: ${score}`)
-            // document.querySelector("#head").style.display = "block"
-            // table1.style.display="none";
-            clearInterval(set)
-            location.reload()
+        function game(evt) {
+
+
+            let id = evt.target.getAttribute("id");
+            if (id == "opt5") {
+                score++;
+                // console.log(score)
+                sc.innerText = `Score : ${score}`;
+
+                tableadd()
+            } else {
+                //   tableadd()
+                //   console.log(score)
+                if (score != 0) {
+                    score--;
+                    sc.innerText = `Score : ${score}`;
+                }
+            }
+
         }
-    },1000)
-})
+
+        start.addEventListener("click", () => {
+            let time = 30
+            document.querySelector("#head").style.display = "none"
+            table1.style.display = "block"
+            const set = setInterval(() => {
+                if (time >= 0) {
+                    document.querySelector("#time").innerText = time
+                    time--;
+                } else {
+                    alert(`Your time over , your Score: ${score}`)
+                    // document.querySelector("#head").style.display = "block"
+                    // table1.style.display="none";
+                    clearInterval(set)
+                    location.reload()
+                }
+            }, 1000)
+        })
     </script>
 </body>
 

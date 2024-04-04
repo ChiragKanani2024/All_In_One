@@ -263,6 +263,9 @@ if (
 <div class="formfield">
     <label for="to">to: </label>
     <input type="text" name="to[]" placeholder="yyyy-mm-dd" id="to"  >
+</div>
+<div class="formfield">
+<i class="fa-solid fa-trash " onclick="deletetabwork(event)"></i>
 </div>`;
     let work_experience = document.querySelector(".work_experience");
     let div = document.createElement("div");
@@ -271,6 +274,16 @@ if (
     work_experience.append(div);
   });
 }
+
+function deletetabwork(event) {
+  event.preventDefault();
+  console.log(event.target);
+  let work_experience_detail = document.querySelectorAll(
+    ".work_experience_detail"
+  );
+  work_experience_detail[work_experience_detail.length - 1].remove();
+}
+
 if (
   location.pathname == "/job_application/insertform" ||
   location.pathname == "/job_application/insertform2"
@@ -290,7 +303,10 @@ if (
     <div class="formfield">
         <label for="referance_relation">Relation : </label>
         <input type="text" name="referance_relation[]"  id="referance_relation" >
-    </div>`;
+    </div>
+    <div class="formfield">
+<i class="fa-solid fa-trash " onclick="deletetabrefcon(event)"></i>
+</div>`;
     let referance = document.querySelector(".referance");
     let div = document.createElement("div");
     div.classList.add("referance_detail");
@@ -299,6 +315,12 @@ if (
   });
 }
 
+function deletetabrefcon(event) {
+  event.preventDefault();
+  console.log(event.target);
+  let referance_detail = document.querySelectorAll(".referance_detail");
+  referance_detail[referance_detail.length - 1].remove();
+}
 // insertform 2
 
 if (

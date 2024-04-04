@@ -1,58 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
     <style>
-      
-        body{
-           background-color:  #008CFF;
-           color: white;
+        body {
+            background-color: #008CFF;
+            color: white;
         }
-        header{
+
+        header {
             text-align: center;
             margin: 1rem;
         }
-       .round{
-        width: 5rem;
-       }
-        .cross{
-        width: 5rem;
-       }
-       #tictactoe{
-        border: 2px solid #008CFF;
-        border-collapse: collapse;
-       }
-       tr,td{
-        /* border: 2px solid black; */
-        padding: 8px;
-        height: 5rem;
-        width: 3rem;
-      
-        
-       }
-       .trbor{
-        border-bottom: 3px solid black;
-       }
-       .tdbor{
-        border-right: 3px solid black;
-       }
-       .container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 1rem;
-       }
-       .score{
-        width: 50vw;
-        display: flex;
-       justify-content: space-around;
-       margin-bottom: 3rem;
-       }
-      
+
+        .round {
+            width: 5rem;
+        }
+
+        .cross {
+            width: 5rem;
+        }
+
+        #tictactoe {
+            border: 2px solid #008CFF;
+            border-collapse: collapse;
+        }
+
+        tr,
+        td {
+            /* border: 2px solid black; */
+            padding: 8px;
+            height: 5rem;
+            width: 3rem;
+
+
+        }
+
+        .trbor {
+            border-bottom: 3px solid black;
+        }
+
+        .tdbor {
+            border-right: 3px solid black;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem;
+        }
+
+        .score {
+            width: 50vw;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 3rem;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Chirag kanani Emp(24DEV036)</h1>
@@ -61,133 +71,134 @@
     <div class="container">
         <div class="score">
             <div class="user1">
-                <h2>User 1  Sign =  <span><img width="25rem" src="/img/round.png" alt=""></span></h2>
-                <p >User 1 Score : <span id="user1win">0</span> Won</p>
+                <h2>User 1 Sign = <span><img width="25rem" src="/img/round.png" alt=""></span></h2>
+                <p>User 1 Score : <span id="user1win">0</span> Won</p>
             </div>
-            <div class="user2"> 
+            <div class="user2">
                 <H2> User 2 Sign = <span><img width="25rem" src="/img/cross.png" alt=""></span></H2>
-                <p > User 2 Score : <span id="user2win">0</span> Won</p>
+                <p> User 2 Score : <span id="user2win">0</span> Won</p>
             </div>
 
         </div>
-       <table id="tictactoe" colspacing="0" colpadding="0">
-        <tr class="trbor">
-            <td class="tdbor" id="td1"> <img class="round" src="" alt=""></td>
-            <td class="tdbor" id="td2"> <img src="" class="cross"></td>
-            <td id="td3"> <img src="" class="cross" alt=""></td>
-        </tr>
-        <tr class="trbor">
-            <td class="tdbor" id="td4"> <img class="round" src="" alt=""></td>
-            <td class="tdbor" id="td5"> <img src="" class="cross" alt=""></td>
-            <td id="td6"> <img src="" class="cross" alt=""></td>
-        </tr>
+        <table id="tictactoe" colspacing="0" colpadding="0">
+            <tr class="trbor">
+                <td class="tdbor" id="td1"> <img class="round" src="" alt=""></td>
+                <td class="tdbor" id="td2"> <img src="" class="cross"></td>
+                <td id="td3"> <img src="" class="cross" alt=""></td>
+            </tr>
+            <tr class="trbor">
+                <td class="tdbor" id="td4"> <img class="round" src="" alt=""></td>
+                <td class="tdbor" id="td5"> <img src="" class="cross" alt=""></td>
+                <td id="td6"> <img src="" class="cross" alt=""></td>
+            </tr>
             <tr>
-            <td class="tdbor" id="td7">  <img class="round" src="" alt=""></td>
-            <td class="tdbor" id="td8"> <img src="" class="cross" alt=""></td>
-            <td id="td9"> <img src="" class="cross" alt=""></td>
-        </tr>
-       </table>
+                <td class="tdbor" id="td7"> <img class="round" src="" alt=""></td>
+                <td class="tdbor" id="td8"> <img src="" class="cross" alt=""></td>
+                <td id="td9"> <img src="" class="cross" alt=""></td>
+            </tr>
+        </table>
     </div>
-    <script >
+    <script>
 
-let tds = document.querySelectorAll("td");
-let user1 = 0;
-let user2 = 1;
-user1wincount = 0
-user2wincount = 0
-let draw = 1;
-let user1win = document.querySelector("#user1win")
-let user2win = document.querySelector("#user2win")
-tds.forEach((e)=>{
-    e.addEventListener("click",userpick)
-})
+        let tds = document.querySelectorAll("td");
+        let user1 = 0;
+        let user2 = 1;
+        user1wincount = 0
+        user2wincount = 0
+        let draw = 1;
+        let user1win = document.querySelector("#user1win")
+        let user2win = document.querySelector("#user2win")
+        tds.forEach((e) => {
+            e.addEventListener("click", userpick)
+        })
 
-function removeimg(){
-    tds.forEach((e)=>{
-        e.addEventListener("click",userpick)
-        e.firstElementChild.setAttribute("src","")
-    })
-    user1 = 0;
-    user2 = 1;
-    draw=1;
-}
-function userpick(e){
-    // console.log(e.target)
-    if(user1 == 0 && user2 == 1){
-        draw++;
-        this.firstElementChild.setAttribute("src","/img/round.png")
-        this.removeEventListener("click",userpick)
-        user1 = 1;
-        user2 = 0;
-
-        let td1 = document.querySelector("#td1").firstElementChild.getAttribute("src");
-        let td2 = document.querySelector("#td2").firstElementChild.getAttribute("src");
-        let td3 = document.querySelector("#td3").firstElementChild.getAttribute("src");
-        let td4 = document.querySelector("#td4").firstElementChild.getAttribute("src");
-        let td5 = document.querySelector("#td5").firstElementChild.getAttribute("src");
-        let td6 = document.querySelector("#td6").firstElementChild.getAttribute("src");
-        let td7 = document.querySelector("#td7").firstElementChild.getAttribute("src");
-        let td8 = document.querySelector("#td8").firstElementChild.getAttribute("src");
-        let td9 = document.querySelector("#td9").firstElementChild.getAttribute("src");
-       
-        if((td1 == "/img/round.png" && td2 == "/img/round.png" && td3 == "/img/round.png") || (td1 == "/img/round.png" && td5 == "/img/round.png" && td9 == "/img/round.png")
-        || (td1 == "/img/round.png" && td4 == "/img/round.png" && td7 == "/img/round.png") || (td2 == "/img/round.png" && td5 == "/img/round.png" && td8 == "/img/round.png")
-         || (td4 == "/img/round.png" && td5 == "/img/round.png" && td6 == "/img/round.png") || (td7 == "/img/round.png" && td8 == "/img/round.png" && td9 == "/img/round.png")
-         || (td3 == "/img/round.png" && td6 == "/img/round.png" && td9 == "/img/round.png") || (td3 == "/img/round.png" && td5 == "/img/round.png" && td7 == "/img/round.png")
-           ){
-            alert('User 1 Won');
-            user1wincount++;
-            user1win.innerText = user1wincount
-            removeimg()
-
-        } 
-     
-       
-        if(draw==10){
-            alert("Game Draw")
-            removeimg()
+        function removeimg() {
+            tds.forEach((e) => {
+                e.addEventListener("click", userpick)
+                e.firstElementChild.setAttribute("src", "")
+            })
+            user1 = 0;
+            user2 = 1;
+            draw = 1;
         }
+        function userpick(e) {
+            // console.log(e.target)
+            if (user1 == 0 && user2 == 1) {
+                draw++;
+                this.firstElementChild.setAttribute("src", "/img/round.png")
+                this.removeEventListener("click", userpick)
+                user1 = 1;
+                user2 = 0;
 
-      
+                let td1 = document.querySelector("#td1").firstElementChild.getAttribute("src");
+                let td2 = document.querySelector("#td2").firstElementChild.getAttribute("src");
+                let td3 = document.querySelector("#td3").firstElementChild.getAttribute("src");
+                let td4 = document.querySelector("#td4").firstElementChild.getAttribute("src");
+                let td5 = document.querySelector("#td5").firstElementChild.getAttribute("src");
+                let td6 = document.querySelector("#td6").firstElementChild.getAttribute("src");
+                let td7 = document.querySelector("#td7").firstElementChild.getAttribute("src");
+                let td8 = document.querySelector("#td8").firstElementChild.getAttribute("src");
+                let td9 = document.querySelector("#td9").firstElementChild.getAttribute("src");
 
-    }else{
-        draw++
-        this.firstElementChild.setAttribute("src","/img/cross.png")
-        this.removeEventListener("click",userpick)
-        user1 = 0;
-        user2 = 1;
+                if ((td1 == "/img/round.png" && td2 == "/img/round.png" && td3 == "/img/round.png") || (td1 == "/img/round.png" && td5 == "/img/round.png" && td9 == "/img/round.png")
+                    || (td1 == "/img/round.png" && td4 == "/img/round.png" && td7 == "/img/round.png") || (td2 == "/img/round.png" && td5 == "/img/round.png" && td8 == "/img/round.png")
+                    || (td4 == "/img/round.png" && td5 == "/img/round.png" && td6 == "/img/round.png") || (td7 == "/img/round.png" && td8 == "/img/round.png" && td9 == "/img/round.png")
+                    || (td3 == "/img/round.png" && td6 == "/img/round.png" && td9 == "/img/round.png") || (td3 == "/img/round.png" && td5 == "/img/round.png" && td7 == "/img/round.png")
+                ) {
+                    alert('User 1 Won');
+                    user1wincount++;
+                    user1win.innerText = user1wincount
+                    removeimg()
 
-        let td1 = document.querySelector("#td1").firstElementChild.getAttribute("src");
-        let td2 = document.querySelector("#td2").firstElementChild.getAttribute("src");
-        let td3 = document.querySelector("#td3").firstElementChild.getAttribute("src");
-        let td4 = document.querySelector("#td4").firstElementChild.getAttribute("src");
-        let td5 = document.querySelector("#td5").firstElementChild.getAttribute("src");
-        let td6 = document.querySelector("#td6").firstElementChild.getAttribute("src");
-        let td7 = document.querySelector("#td7").firstElementChild.getAttribute("src");
-        let td8 = document.querySelector("#td8").firstElementChild.getAttribute("src");
-        let td9 = document.querySelector("#td9").firstElementChild.getAttribute("src");
-
-       
-        if((td1 == "/img/cross.png" && td2 == "/img/cross.png" && td3 == "/img/cross.png")
-        || (td1 == "/img/cross.png" && td5 == "/img/cross.png" && td9 == "/img/cross.png") || (td1 == "/img/cross.png" && td4 == "/img/cross.png" && td7 == "/img/cross.png")
-        || (td2 == "/img/cross.png" && td5 == "/img/cross.png" && td8 == "/img/cross.png") || (td4 == "/img/cross.png" && td5 == "/img/cross.png" && td6 == "/img/cross.png")
-         || (td7 == "/img/cross.png" && td8 == "/img/cross.png" && td9 == "/img/cross.png") || (td3 == "/img/cross.png" && td6 == "/img/cross.png" && td9 == "/img/cross.png")
-         ||  (td3 == "/img/cross.png" && td5 == "/img/cross.png" && td7 == "/img/cross.png")
-        ){
-            alert('User 2 Won');
-            user2wincount++;
-            user2win.innerText = user2wincount
-            removeimg()
+                }
 
 
-        } 
-       
-        if(draw==10){
-            alert("Game Draw")
-            removeimg()
+                if (draw == 10) {
+                    alert("Game Draw")
+                    removeimg()
+                }
+
+
+
+            } else {
+                draw++
+                this.firstElementChild.setAttribute("src", "/img/cross.png")
+                this.removeEventListener("click", userpick)
+                user1 = 0;
+                user2 = 1;
+                // Code Enhancement
+                let td1 = document.querySelector("#td1").firstElementChild.getAttribute("src");
+                let td2 = document.querySelector("#td2").firstElementChild.getAttribute("src");
+                let td3 = document.querySelector("#td3").firstElementChild.getAttribute("src");
+                let td4 = document.querySelector("#td4").firstElementChild.getAttribute("src");
+                let td5 = document.querySelector("#td5").firstElementChild.getAttribute("src");
+                let td6 = document.querySelector("#td6").firstElementChild.getAttribute("src");
+                let td7 = document.querySelector("#td7").firstElementChild.getAttribute("src");
+                let td8 = document.querySelector("#td8").firstElementChild.getAttribute("src");
+                let td9 = document.querySelector("#td9").firstElementChild.getAttribute("src");
+
+
+                if ((td1 == "/img/cross.png" && td2 == "/img/cross.png" && td3 == "/img/cross.png")
+                    || (td1 == "/img/cross.png" && td5 == "/img/cross.png" && td9 == "/img/cross.png") || (td1 == "/img/cross.png" && td4 == "/img/cross.png" && td7 == "/img/cross.png")
+                    || (td2 == "/img/cross.png" && td5 == "/img/cross.png" && td8 == "/img/cross.png") || (td4 == "/img/cross.png" && td5 == "/img/cross.png" && td6 == "/img/cross.png")
+                    || (td7 == "/img/cross.png" && td8 == "/img/cross.png" && td9 == "/img/cross.png") || (td3 == "/img/cross.png" && td6 == "/img/cross.png" && td9 == "/img/cross.png")
+                    || (td3 == "/img/cross.png" && td5 == "/img/cross.png" && td7 == "/img/cross.png")
+                ) {
+                    alert('User 2 Won');
+                    user2wincount++;
+                    user2win.innerText = user2wincount
+                    removeimg()
+
+
+                }
+
+                if (draw == 10) {
+                    alert("Game Draw")
+                    removeimg()
+                }
+            }
         }
-    }
-}
     </script>
 </body>
+
 </html>
