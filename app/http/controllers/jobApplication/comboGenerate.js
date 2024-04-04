@@ -1,3 +1,4 @@
+const logger = require("../../../../logger");
 const conn = require("../../../../mysql_connection");
 
 const generate = async (unique_key, value) => {

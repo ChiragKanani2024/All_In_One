@@ -7,6 +7,7 @@ const expresslayout = require("express-ejs-layouts");
 app.set("layout", "./layouts/layout");
 const cookieParser = require("cookie-parser");
 const flash = require("express-flash");
+const logger = require("./logger");
 
 const session = require("express-session");
 
@@ -33,4 +34,5 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", web);
+
 app.listen(process.env.port || 3002);
