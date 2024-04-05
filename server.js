@@ -35,4 +35,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", web);
 
+logger.error("error");
+logger.warn("warn");
+logger.info("info");
+logger.verbose("verbose");
+logger.debug("debug");
+logger.silly("silly");
+
 app.listen(process.env.port || 3002);
